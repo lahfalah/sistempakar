@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDiagnosisRequest;
-use App\Http\Requests\UpdateDiagnosisRequest;
-use App\Models\Diagnosis;
+use App\Http\Requests\StoreDiagnosaItemRequest;
+use App\Http\Requests\UpdateDiagnosaItemRequest;
+use App\Models\DiagnosaItem;
 
-class DiagnosisController extends Controller
+class DiagnosaItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class DiagnosisController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDiagnosisRequest  $request
+     * @param  \App\Http\Requests\StoreDiagnosaItemRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDiagnosisRequest $request)
+    public function store(StoreDiagnosaItemRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class DiagnosisController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Diagnosis  $diagnosis
+     * @param  \App\Models\DiagnosaItem  $diagnosaItem
      * @return \Illuminate\Http\Response
      */
-    public function show(Diagnosis $diagnosis)
+    public function show(DiagnosaItem $diagnosaItem)
     {
         //
     }
@@ -53,10 +53,10 @@ class DiagnosisController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Diagnosis  $diagnosis
+     * @param  \App\Models\DiagnosaItem  $diagnosaItem
      * @return \Illuminate\Http\Response
      */
-    public function edit(Diagnosis $diagnosis)
+    public function edit(DiagnosaItem $diagnosaItem)
     {
         //
     }
@@ -64,11 +64,11 @@ class DiagnosisController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDiagnosisRequest  $request
-     * @param  \App\Models\Diagnosis  $diagnosis
+     * @param  \App\Http\Requests\UpdateDiagnosaItemRequest  $request
+     * @param  \App\Models\DiagnosaItem  $diagnosaItem
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDiagnosisRequest $request, Diagnosis $diagnosis)
+    public function update(UpdateDiagnosaItemRequest $request, DiagnosaItem $diagnosaItem)
     {
         //
     }
@@ -76,10 +76,10 @@ class DiagnosisController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Diagnosis  $diagnosis
+     * @param  \App\Models\DiagnosaItem  $diagnosaItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Diagnosis $diagnosis)
+    public function destroy(DiagnosaItem $diagnosaItem)
     {
         //
     }

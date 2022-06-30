@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeseasesController;
 use App\Http\Controllers\SymptomsController;
-use App\Http\Controllers\DiagnosisController;
 use App\Http\Controllers\InformationsController;
 use App\Http\Controllers\UsersInformationsController;
+use App\Http\Controllers\UsersDiagnosisController;
+use App\Http\Controllers\DiagnosaController;
+use App\Http\Controllers\DiagnosasItemController;
+use App\Models\Diagnosa;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +26,8 @@ Route::get('/', [UsersInformationsController::class, 'index']);
 //Halaman informasi selengkapnya
 Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class, 'show']);
 
-Route::get('/diagnosis',  function(){
-    return view('diagnosis',[
-        "title"=>"Cek Diagnosis"
-    ]);
-});
+Route::get('/diagnosis', [UsersDiagnosisController::class, 'index']);
+
 Route::get('/laporan',  function(){
     return view('laporan',[
         "title"=>"Hasil Laporan"
@@ -51,12 +51,16 @@ Route::get('/admin/users',  function(){
 // Route::get('/admin/symptoms',  function(){
 //     return view('admin.symptom.index');
 // });
-Route::get('/admin/diagnosis',  function(){
-    return view('admin.diagnosis.index');
-});
+// Route::get('/admin/diagnosis',  function(){
+//     return view('admin.diagnosis.index');
+// });
 
 //ROUTE CONTROLLER
 Route::resource('/admin/deseases', DeseasesController::class);
 Route::resource('/admin/symptoms', SymptomsController::class);
 Route::resource('/admin/informations', InformationsController::class);
-// Route::resource('/admin/diagnosis', DiagnosisController::class);
+Route::resource('/admin/diagnosis', DiagnosaController::class);
+Route::get('/admin/rule/{id}', [DiagnosaController::class, 'rule'])->name('rule');
+Route::post('/admin/rule', [DiagnosaController::class, 'store_diagnose'])->name('store_diagnose');
+
+// Route::resource('/admin/diagnosis', DiagnosasController::class);
