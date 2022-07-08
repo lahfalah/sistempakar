@@ -1,6 +1,10 @@
-@extends('admin.main')
+@extends('admin.layouts.main')
 
 @section('container')
+<div class="card card-info">
+    <div class="card-header">
+    <h3 class="card-title">Lihat Informasi</h3>
+    </div>
 <div class="container">
     <div class="row">
         <div class="col pt-3 pb-4">

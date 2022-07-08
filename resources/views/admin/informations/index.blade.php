@@ -1,71 +1,83 @@
-@extends('admin.main')
+@extends('admin.layouts.main')
 
 @section('container')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Data-Data Informasi</h1>
-  </div>
 
-  <div class="table-responsive col-lg-8">
-    {{-- Membuat Data Ada Disini --}}
-    <a href="{{ route('informations.create') }}" class="btn btn-primary mb-3">Membuat Informasi Baru</a>
-    @if (count($errors) > 0)
-  <div class="alert alert-danger alert-dismissible">
-    <ul>
-      @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>    
-  @endif
-  @if (\Session::has ('success'))
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{ \Session::get('success') }}</strong>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  @endif
-    <table class="table table-striped table-sm">
-      <thead>
-        <tr>
-            {{-- Id Posts
-            <th scope="col">ID</th>
-            {{-- Ini Category_Id 
-            <th scope="col">Ctgr</th> --}}
-            {{-- <th scope="col">Slug</th> --}}
+<section class="container">
+    <div class="container-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header text-center bg-gray-dark">
+                                <h1><b>Data-Data Informasi</b></h1>
+                            </div>
+                            <div class="card-body">
+                                {{-- Tambah Data Informasi --}}
+                                <div class="col-md-3 mb-3">
+                                    <a href="{{ route('informations.create') }}">
+                                        <button type="button" class="btn btn-primary btn-block"><i
+                                                class="fas fa-plus-square"></i> Tambah Data Informasi</button>
+                                    </a>
+                                </div>
 
+                                @if (count($errors) > 0)
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                @if (\Session::has('success'))
+                                    <script>
+                                        $(document).Toasts('create', {
+                                            class: 'bg-success',
+                                            title: '{{ \Session::get('success') }}',
+                                            icon: 'fa-solid fa-check',
+                                            autohide: true,
+                                            delay: 2000,
+                                        })
+                                    </script>
+                                @endif
+                                <table id="example2" class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 100px" class="text-center">No</th>
+                                            <th class="text-center">Judul</th>
+                                            <th style="width: 120px" class="text-center">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($data as $d)
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" class="text-center">{{ $no++ }}</th>
+                                                <td class="text-center">{{ $d->judul }}</td>
+                                                <td class="text-center">
+                                                    {{-- READ --}}
+                                                    <a href="{{ route('informations.show', $d->id) }}"
+                                                        class="badge bg-info"><i class="fas fa-eye"></i></a>
+                                                    {{-- UPDATE --}}
+                                                    <a href="{{ route('informations.edit', $d->id) }}"
+                                                        class="badge bg-warning"><i class="fas fa-edit"></i></a>
+                                                    {{-- DELETE --}}
+                                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');"action="{{ route('informations.destroy', $d->id) }}"method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="badge bg-danger border-0"><i
+                                                                class="fas fa-trash-alt"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+        </section>
 
-        <th scope="col">No</th>
-        {{-- Title --}}
-        <th scope="col">Judul</th>
-        {{-- Ini Action RUD --}}
-        <th scope="col">Aksi</th>
-        </tr>
-      </thead>
-      @php
-          $no = 1;
-      @endphp
-      @foreach ($data as $d)
-      <tbody>
-        {{-- @foreach ($posts as $post)    --}}
-        <tr>
-          <th scope="row">{{ $no++ }}</th>
-        <td>{{ $d->judul }}</td>
-        <td>
-            {{-- READ --}}
-            <a href="{{ route('informations.show', $d->id) }}" class="badge bg-info"><span data-feather="eye"></span></a>
-            {{-- UPDATE --}}
-            <a href="{{ route('informations.edit', $d->id) }}" class="badge bg-warning"><span data-feather="edit"></span></a>
-            {{-- DELETE --}}
-            <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-    action="{{ route('informations.destroy', $d->id) }}" method="POST" class="d-inline">
-    @csrf
-    @method('DELETE')
-    <button class="badge bg-danger border-0"><span data-feather="x-circle"></span></button>
-</form>
-        </td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
-
-@endsection
+    @endsection

@@ -9,9 +9,10 @@ class UsersDiagnosisController extends Controller
 {
     public function index()
     {
-        return view('diagnosis',[
+        return view('user/diagnosis',[
             "title" => "Halaman Diagnosis",
             "data" => Symptoms::all()
         ]);
     }
+    
 }

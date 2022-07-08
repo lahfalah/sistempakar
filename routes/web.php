@@ -29,7 +29,7 @@ Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class,
 Route::get('/diagnosis', [UsersDiagnosisController::class, 'index']);
 
 Route::get('/laporan',  function(){
-    return view('laporan',[
+    return view('user/laporan',[
         "title"=>"Hasil Laporan"
     ]);
 });
@@ -37,7 +37,7 @@ Route::get('/laporan',  function(){
 
 // KHUSUS ROUTE ADMIN DASHBOARD BERISI DATA DATA
 Route::get('/admin',  function(){
-    return view('admin.index');
+    return view('admin.layouts.index');
 });
 Route::get('/admin/users',  function(){
     return view('admin.users.index');

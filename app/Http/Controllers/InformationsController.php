@@ -16,7 +16,7 @@ class InformationsController extends Controller
      */
     public function index()
     {
-        $data=Informations::all();
+        $data = Informations::all();
         return view('admin.informations.index', compact('data'));
     }
 
@@ -39,15 +39,17 @@ class InformationsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'judul'=>'required',
-            'isi'=>'required',
+            'judul' => 'required',
+            'isi' => 'required',
         ]);
 
         $data = new Informations();
-        $data->judul=$request->judul;
-        $data->isi=$request->isi;
+        $data->judul = $request->judul;
+        $data->isi = $request->isi;
         $data->save();
-        return redirect()->route('informations.index')->with('success', 'Informasi Berhasil Ditambahkan');
+        return redirect()
+            ->route('informations.index')
+            ->with('success', 'Informasi Berhasil Ditambahkan');
     }
 
     /**
@@ -85,7 +87,7 @@ class InformationsController extends Controller
     {
         $this->validate($request, [
             'judul' => 'required',
-            'isi' => 'required'
+            'isi' => 'required',
         ]);
 
         $data = Informations::findOrFail($id);
@@ -99,14 +101,14 @@ class InformationsController extends Controller
             return redirect()
                 ->route('informations.index')
                 ->with([
-                    'success' => 'Informasi Berhasil Di Edit'
+                    'success' => 'Informasi Berhasil Di Edit',
                 ]);
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Some problem has occured, please try again'
+                    'error' => 'Some problem has occured, please try again',
                 ]);
         }
     }
@@ -126,13 +128,13 @@ class InformationsController extends Controller
             return redirect()
                 ->route('informations.index')
                 ->with([
-                    'success' => 'Informasi Berhasil Dihapus'
+                    'success' => 'Informasi Berhasil Dihapus',
                 ]);
         } else {
             return redirect()
                 ->route('informations.index')
                 ->with([
-                    'error' => 'Some problem has occurred, please try again'
+                    'error' => 'Some problem has occurred, please try again',
                 ]);
         }
     }

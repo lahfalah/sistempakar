@@ -17,7 +17,7 @@ class DiagnosaController extends Controller
      */
     public function index()
     {
-        $data=Diagnosa::all();
+        $data = Diagnosa::all();
         return view('admin.diagnosis.index', compact('data'));
     }
 
@@ -28,7 +28,7 @@ class DiagnosaController extends Controller
      */
     public function create()
     {
-        $data=Deseases::all();
+        $data = Deseases::all();
         return view('admin.diagnosis.create', compact('data'));
     }
 
@@ -40,29 +40,32 @@ class DiagnosaController extends Controller
      */
     public function store(Request $request)
     {
-        
         $request->validate([
-            'deseases_id'=>'required',
+            'deseases_id' => 'required',
         ]);
 
         $data = new Diagnosa();
-        $data->deseases_id=$request->deseases_id;
+        $data->deseases_id = $request->deseases_id;
         $data->save();
-        return redirect()->route('diagnosis.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()
+            ->route('diagnosis.index')
+            ->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function store_diagnose(Request $request)
     {
         $request->validate([
-            'diagnosas_id'=>'required',
-            'symptoms_id'=>'required',
+            'diagnosas_id' => 'required',
+            'symptoms_id' => 'required',
         ]);
 
         $data = new DiagnosaItem();
-        $data->diagnosas_id=$request->diagnosas_id;
-        $data->symptoms_id=$request->symptoms_id;
+        $data->diagnosas_id = $request->diagnosas_id;
+        $data->symptoms_id = $request->symptoms_id;
         $data->save();
-        return redirect()->route('diagnosis.index')->with('success', 'Rule Berhasil Ditambahkan');
+        return redirect()
+            ->route('diagnosis.index')
+            ->with('success', 'Rule Berhasil Ditambahkan');
     }
 
     /**
@@ -75,13 +78,13 @@ class DiagnosaController extends Controller
     {
         $data = Diagnosa::findOrFail($id);
         $gejala = DiagnosaItem::where(['diagnosas_id' => $id])->get();
-        return view('admin.diagnosis.show', compact('data','gejala', "id"));
+        return view('admin.diagnosis.show', compact('data', 'gejala', 'id'));
     }
 
     public function rule($id)
     {
         $gejala = Symptoms::all();
-        return view("admin.diagnosis.rule", compact('gejala', 'id'));
+        return view('admin.diagnosis.rule', compact('gejala', 'id'));
     }
 
     /**
@@ -118,14 +121,14 @@ class DiagnosaController extends Controller
             return redirect()
                 ->route('diagnosis.index')
                 ->with([
-                    'success' => 'Data Berhasil Di Edit'
+                    'success' => 'Data Berhasil Di Edit',
                 ]);
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Some problem has occured, please try again'
+                    'error' => 'Some problem has occured, please try again',
                 ]);
         }
     }
@@ -145,13 +148,13 @@ class DiagnosaController extends Controller
             return redirect()
                 ->route('diagnosis.index')
                 ->with([
-                    'success' => 'Data Berhasil Dihapus'
+                    'success' => 'Data Berhasil Dihapus',
                 ]);
         } else {
             return redirect()
                 ->route('diagnosis.index')
                 ->with([
-                    'error' => 'Some problem has occurred, please try again'
+                    'error' => 'Some problem has occurred, please try again',
                 ]);
         }
     }

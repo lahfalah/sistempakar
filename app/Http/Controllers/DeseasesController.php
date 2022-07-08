@@ -17,7 +17,7 @@ class DeseasesController extends Controller
      */
     public function index()
     {
-        $data=Deseases::all();
+        $data = Deseases::all();
         return view('admin.deseases.index', compact('data'));
     }
 
@@ -40,15 +40,17 @@ class DeseasesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kodepenyakit'=>'required',
-            'namapenyakit'=>'required',
+            'kodepenyakit' => 'required',
+            'namapenyakit' => 'required',
         ]);
 
         $data = new Deseases();
-        $data->kodepenyakit=$request->kodepenyakit;
-        $data->namapenyakit=$request->namapenyakit;
+        $data->kodepenyakit = $request->kodepenyakit;
+        $data->namapenyakit = $request->namapenyakit;
         $data->save();
-        return redirect()->route('deseases.index')->with('success', 'Penyakit Berhasil Ditambahkan');
+        return redirect()
+            ->route('deseases.index')
+            ->with('success', 'Penyakit Berhasil Ditambahkan');
     }
 
     /**
@@ -85,7 +87,7 @@ class DeseasesController extends Controller
     {
         $this->validate($request, [
             'kodepenyakit' => 'required',
-            'namapenyakit' => 'required'
+            'namapenyakit' => 'required',
         ]);
 
         $data = Deseases::findOrFail($id);
@@ -99,18 +101,17 @@ class DeseasesController extends Controller
             return redirect()
                 ->route('deseases.index')
                 ->with([
-                    'success' => 'Data Penyakit Berhasil Di Edit'
+                    'success' => 'Data Penyakit Berhasil Di Edit',
                 ]);
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Some problem has occured, please try again'
+                    'error' => 'Some problem has occured, please try again',
                 ]);
         }
     }
-    
 
     /**
      * Remove the specified resource from storage.
@@ -127,15 +128,14 @@ class DeseasesController extends Controller
             return redirect()
                 ->route('deseases.index')
                 ->with([
-                    'success' => 'Data Penyakit Berhasil Dihapus'
+                    'success' => 'Data Penyakit Berhasil Dihapus',
                 ]);
         } else {
             return redirect()
                 ->route('deseases.index')
                 ->with([
-                    'error' => 'Some problem has occurred, please try again'
+                    'error' => 'Some problem has occurred, please try again',
                 ]);
         }
     }
 }
-

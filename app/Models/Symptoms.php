@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Symptoms extends Model
 {
     use HasFactory;
-    protected $table='symptoms';
-    protected $primaryKey='id';
-    protected $fillable=[
-        'kodegejala',
-        'namagejala'
-    ];
+    protected $table = 'symptoms';
+    protected $primaryKey = 'id';
+    protected $fillable = ['kodegejala', 'namagejala'];
 }
