@@ -1,35 +1,42 @@
-
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+<nav class="main-header navbar navbar-expand-md navbar-maroon navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="/"><img src="/img/hiv.png" width="30" height="25" alt=""></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Halaman Utama</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('diagnosis') ? 'active' : '' }}" href="/diagnosis">Cek Diagnosis</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('laporan') ? 'active' : '' }}" href="/laporan">Hasil Laporan</a>
-          </li>
-        </ul>
+        <a href="#" class="navbar-brand">
+            <img src="/img/hiv.png" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light"><b> HIV/AIDS </b></span>
+        </a>
 
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Selamat Datang Admin
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="admin">Kelola Data</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse order-3 justify-content-center" id="navbarCollapse">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Halaman Utama</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/diagnosis" class="nav-link">Cek Diagnosa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/laporan" class="nav-link">Hasil Laporan</a>
+                </li>
             </ul>
-          </li>
-      </ul>
-      </div>
+        </div>
+
+        <!-- Right navbar links -->
+        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+            <li>
+                <a class="nav-link" href="admin">
+                    <i class="fa-solid fa-gears"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </a>
+            </li>
+        </ul>
     </div>
-  </nav>
+</nav>

@@ -50,12 +50,11 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto mr-4">
-
                 <li class="nav-item d-none d-sm-inline-block">
-                    <i class="fas fa-sign-out"></i>
-                    {{-- <a href="#" class="nav-link">Hasil Laporan</a> --}}
+                    <a href="#" class="nav-link">    
+                        <i class="fas fa-sign-out"></i>
+                    </a>
                 </li>
-
             </ul>
         </nav>
         <!-- /.navbar -->
