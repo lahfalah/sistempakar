@@ -2,7 +2,7 @@
     <div class="container">
         <a href="#" class="navbar-brand">
             <img src="/img/hiv.png" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light"><b> HIV/AIDS </b></span>
+            <span class="brand-text font-weight-light"></span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -10,7 +10,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse order-3 justify-content-center" id="navbarCollapse">
+        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="login">
                     <i class="fa-solid fa-arrow-right-to-bracket"></i>
                 </a>
             </li>

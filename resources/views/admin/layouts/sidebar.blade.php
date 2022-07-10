@@ -3,6 +3,14 @@
         <!-- Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library -->
         <li class="nav-item">
+            <a href="/admin" class="nav-link">
+                <i class="nav-icon fa-solid fa-database"></i>
+                <p>
+                    Data Keseluruhan
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="/admin/users" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>

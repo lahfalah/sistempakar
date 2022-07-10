@@ -16,6 +16,8 @@
     <!-- include trix css -->
     <link rel="stylesheet" type="text/css" href="/css/trix.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+
     <!-- jQuery -->
     <script src="{{ asset('Template') }}/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -51,7 +53,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto mr-4">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">    
+                    <a href="login" class="nav-link">
                         <i class="fas fa-sign-out"></i>
                     </a>
                 </li>
@@ -70,16 +72,13 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex justify-content-center">
                     <div class="image">
-                        <img src="{{ asset('Template') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
-                            alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Falah Insan Pratama</a>
+                        <a href="/admin">
+                            <img src="/img/hiv.png" class="img-circle elevation-5">
+                        </a>
                     </div>
                 </div>
-
                 <!-- Sidebar Menu -->
                 @include('admin.layouts.sidebar')
                 <!-- /.sidebar-menu -->
@@ -118,7 +117,7 @@
     <!-- ./wrapper -->
     {{-- Icon --}}
     <script src="https://kit.fontawesome.com/f259651f11.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
     {{-- Trix Editor --}}
     <script type="text/javascript" src="/js/trix.js"></script>
     <!-- AdminLTE for demo purposes -->

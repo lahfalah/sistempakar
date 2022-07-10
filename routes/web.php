@@ -20,6 +20,17 @@ use App\Models\Diagnosa;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Login dan Register
+Route::get('/login',  function(){
+    return view('login.login',[
+    ]);
+});
+Route::get('/register',  function(){
+    return view('login.register',[
+    ]);
+});
+
+
 // HALAMAN PENGGUNA
 
 Route::get('/', [UsersInformationsController::class, 'index']);
@@ -29,7 +40,7 @@ Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class,
 Route::get('/diagnosis', [UsersDiagnosisController::class, 'index']);
 
 Route::get('/laporan',  function(){
-    return view('user/laporan',[
+    return view('user.laporan',[
         "title"=>"Hasil Laporan"
     ]);
 });

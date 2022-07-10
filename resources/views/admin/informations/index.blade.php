@@ -2,8 +2,8 @@
 
 @section('container')
 
-<section class="container">
-    <div class="container-wrapper">
+    <section class="container">
+        <div class="container-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -31,13 +31,13 @@
                                 @endif
                                 @if (\Session::has('success'))
                                     <script>
-                                        $(document).Toasts('create', {
-                                            class: 'bg-success',
-                                            title: '{{ \Session::get('success') }}',
-                                            icon: 'fa-solid fa-check',
-                                            autohide: true,
-                                            delay: 2000,
-                                        })
+                                        $(document).Toasts(
+                                            Swal.fire({
+                                                position: 'top-center',
+                                                icon: 'success',
+                                                title: '{{ \Session::get('success') }}',
+                                                timer: 2000
+                                            }))
                                     </script>
                                 @endif
                                 <table id="example2" class="table table-bordered table-striped table-hover">
@@ -64,11 +64,14 @@
                                                     <a href="{{ route('informations.edit', $d->id) }}"
                                                         class="badge bg-warning"><i class="fas fa-edit"></i></a>
                                                     {{-- DELETE --}}
-                                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');"action="{{ route('informations.destroy', $d->id) }}"method="POST" class="d-inline">
+                                                    <form
+                                                        onsubmit="return confirm('Apakah Anda Yakin ?');"action="{{ route('informations.destroy', $d->id) }}"method="POST"
+                                                        class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="badge bg-danger border-0"><i
-                                                                class="fas fa-trash-alt"></i></button>
+                                                                class="fas fa-trash-alt"></i>
+                                                        </button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -78,6 +81,6 @@
                             </div>
                         </div>
                     </div>
-        </section>
+    </section>
 
-    @endsection
+@endsection
