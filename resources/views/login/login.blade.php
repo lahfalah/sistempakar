@@ -14,6 +14,17 @@
     <link rel="stylesheet" href="{{ asset('Template') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
     <link rel="stylesheet" href="{{ asset('Template') }}/dist/css/adminlte.min.css?v=3.2.0">
+
+    <script src="{{ asset('Template') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
+
+    <script src="{{ asset('Template') }}/plugins/jquery/jquery.min.js"></script>
+
+    <script src="{{ asset('Template') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="{{ asset('Template') }}/dist/js/adminlte.min.js?v=3.2.0"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
+    
     <script nonce="56de365c-6d68-40df-935e-ad30d5a7df30">
         (function(w, d) {
             ! function(a, e, t, r) {
@@ -73,18 +84,22 @@
     </script>
 </head>
 
+
+
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href=""><b>Halaman Masuk</b></a>
+            <img src="/img/hiv.png" width="100" class="brand-image img-circle elevation-3" style="opacity: .8">
         </div>
 
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Selamat Datang</p>
-                <form action="/">
+                <form action="/login" method="POST">
+                    @csrf
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Email"
+                            autofocus required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -92,7 +107,8 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Kata Sandi">
+                        <input type="password" name="password" class="form-control" id="password"
+                            placeholder="Kata Sandi" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -106,9 +122,9 @@
                     </div>
                 </form>
                 <div class="social-auth-links tex-center mb-2 mt-3">
-                    <p>
+                    {{-- <p>
                         <a href="forgot-password.html">Lupa Kata Sandi..!</a>
-                    </p>
+                    </p> --}}
                     <p>
                         <a href="register" class="text-center">Belum Punya Akun..! Silahkan Daftar</a>
                     </p>
@@ -117,13 +133,17 @@
 
         </div>
     </div>
-
-
-    <script src="{{ asset('Template') }}/plugins/jquery/jquery.min.js"></script>
-
-    <script src="{{ asset('Template') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script src="{{ asset('Template') }}/dist/js/adminlte.min.js?v=3.2.0"></script>
+    @if (\Session::has('success'))
+        <script>
+            $(document).Toasts(
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: '{{ \Session::get('success') }}',
+                    timer: 1500
+                }))
+        </script>
+    @endif
 </body>
 
 </html>

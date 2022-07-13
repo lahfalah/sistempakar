@@ -7,6 +7,8 @@ use App\Http\Controllers\InformationsController;
 use App\Http\Controllers\UsersInformationsController;
 use App\Http\Controllers\UsersDiagnosisController;
 use App\Http\Controllers\DiagnosaController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DiagnosasItemController;
 use App\Models\Diagnosa;
 
@@ -21,14 +23,9 @@ use App\Models\Diagnosa;
 |
 */
 // Login dan Register
-Route::get('/login',  function(){
-    return view('login.login',[
-    ]);
-});
-Route::get('/register',  function(){
-    return view('login.register',[
-    ]);
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 
 // HALAMAN PENGGUNA

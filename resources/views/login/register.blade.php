@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('Template') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
     <link rel="stylesheet" href="{{ asset('Template') }}/dist/css/adminlte.min.css?v=3.2.0">
+    <script src="{{ asset('Template') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
     <script nonce="56cc0b81-5776-4b46-92f6-3e66819e14ff">
         (function(w, d) {
             ! function(a, e, t, r) {
@@ -76,44 +77,47 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a><b>Daftar Akun</b></a>
+            <img src="/img/hiv.png" width="100" class="brand-image img-circle elevation-3" style="opacity: .8">
         </div>
         <div class="card">
+            {{-- {{ old('judul', $data->judul) }} --}}
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Silahkan Daftar</p>
-                <form action="{{ asset('Template') }}/index.html" method="post">
+                <form action="/register" method="POST">
+                    @csrf
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Nama Lengkap">
+                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                            id="name" placeholder="Nama Lengkap" required value="{{ old('name') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
+                                <div class="invalid-feedback"></div>
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                            id="email" placeholder="Email" required value="{{ old('email') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
+                                <div class="invalid-feedback"></div>
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Kata Sandi">
+                        <input type="password" name="password"
+                            class="form-control @error('password') is-invalid @enderror" id="password"
+                            placeholder="Kata Sandi" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
+                                <div class="invalid-feedback"></div>
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Ulangi Kata Sandi">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
+                    <input type="level" name="level" class="form-control mb-3 text-muted"
+                        id="level" placeholder="" required value="User" readonly>
                     <div class="row">
 
                         <div class="col-12">

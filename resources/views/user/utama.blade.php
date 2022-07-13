@@ -10,10 +10,9 @@
 </a>
 </div>
 <div class="card-body">
-    <h6 class="card-title">Special title treatment</h6>
+    <h6 class="card-title">Belum Di Isi</h6>
 
-    <p class="card-text">With supporting text below as a natural lead-in to additional
-        content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas optio nisi enim eveniet reprehenderit vero? Quas sunt fugiat reiciendis atque perspiciatis illum ullam at! Harum ea rem in pariatur expedita!</p>
+    <p class="card-text">Isi ......</p>
     <a href="/utama/{{ $d->id }}" class="btn btn-primary">Lihat Selengkapnya</a>
 </div>
 </div>

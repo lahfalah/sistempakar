@@ -29,15 +29,15 @@
                                     </div>
                                 @endif
                                 @if (\Session::has('success'))
-                                    <script>
-                                        $(document).Toasts('create', {
-                                            class: 'bg-success',
+                                <script>
+                                    $(document).Toasts(
+                                        Swal.fire({
+                                            position: 'top-center',
+                                            icon: 'success',
                                             title: '{{ \Session::get('success') }}',
-                                            icon: 'fa-solid fa-check',
-                                            autohide: true,
-                                            delay: 2000,
-                                        })
-                                    </script>
+                                            timer: 2000
+                                        }))
+                                </script>
                                 @endif
                                 <table id="example2" class="table table-bordered table-striped table-hover">
                                     <thead>

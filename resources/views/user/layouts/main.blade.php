@@ -72,9 +72,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main Footer -->
         <footer class="main-footer bg-maroon">
             <!-- To the right -->
-            <div class="float-right d-none d-sm-inline">
+            {{-- <div class="float-right d-none d-sm-inline">
                 <b>Falah Insan Pratama &copy; 2022 </b>
-            </div>
+            </div> --}}
             <!-- Default to the left -->
             <strong>Sistem Pakar HIV/AIDS</strong>
         </footer>

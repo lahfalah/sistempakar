@@ -53,7 +53,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto mr-4">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="login" class="nav-link">
+                    <a href="/login" class="nav-link">
                         <i class="fas fa-sign-out"></i>
                     </a>
                 </li>
