@@ -80,7 +80,6 @@
             <img src="/img/hiv.png" width="100" class="brand-image img-circle elevation-3" style="opacity: .8">
         </div>
         <div class="card">
-            {{-- {{ old('judul', $data->judul) }} --}}
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Silahkan Daftar</p>
                 <form action="/register" method="POST">
@@ -116,7 +115,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="level" name="level" class="form-control mb-3 text-muted"
+                    <input type="hidden" name="level" class="form-control mb-3 text-muted"
                         id="level" placeholder="" required value="User" readonly>
                     <div class="row">
 

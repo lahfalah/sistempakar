@@ -27,4 +27,9 @@ class RegisterController extends Controller
 
         return redirect('/login')->with('success', 'Daftar Akun Berhasil');
     }
+    
+    public function semua(){
+        $data = User::all();
+        return view('admin.users.index', compact('data'));
+    }
 }

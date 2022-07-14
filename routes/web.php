@@ -50,9 +50,7 @@ Route::get('/laporan',  function(){
 Route::get('/admin',  function(){
     return view('admin.layouts.index');
 });
-Route::get('/admin/users',  function(){
-    return view('admin.users.index');
-});
+Route::get('/admin/users', [RegisterController::class, 'semua']);
 // Route::get('/admin/informations',  function(){
 //     return view('admin.informations.index');
 // });
