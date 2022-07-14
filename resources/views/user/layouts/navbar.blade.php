@@ -40,7 +40,7 @@
                 </li>
                 <li>
                     <form action="/logout" method="POST">
-                        @csrf
+                        @csrf 
                         <button type="submit" class="nav-link border-0 bg-transparent"><i class="fas fa-sign-out"></i></button>
                     </form>
                 </li>

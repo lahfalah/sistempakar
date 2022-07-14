@@ -1,29 +1,40 @@
 @extends('admin.layouts.main')
 
 @section('container')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Membuat Pengguna Baru</h1>
+<div class="row">
+  <div class="col-md-12">
+      @if ($errors->any())
+          @foreach ($errors->all() as $error)
+              <p class="alert alert-danger">{{ $error }}</p>
+          @endforeach
+      @endif
+      <div class="card card-primary">
+          <div class="card-header">
+              <h3 class="card-title">Tambah Data Admin</h3>
+          </div>
+          <form method="POST" action="/admin/users/create">
+              @csrf
+              <div class="card-body">
+                  <div class="form-group">
+                      <label for="name" class="form-label">Nama Lengkap</label>
+                      <input type="text" id="name" class="form-control" name="name">
+                  </div>
+                  <div class="form-group">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" id="email" class="form-control" name="email">
+                  </div>
+                  <div class="form-group">
+                      <label for="password" class="form-label">Kata Sandi</label>
+                      <input type="password" id="password" class="form-control" name="password">
+                  </div>
+                  <input type="" name="level" class="form-control mb-3 text-muted"
+                        id="level" placeholder="" required value="Admin" readonly>
+              </div>
+              <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+              </div>
+          </form>
+      </div>
   </div>
-  <div class="col-lg-8">
-
-    <form method="" action="">
-    @csrf
-    <div class="mb-3">
-      <label for="" class="form-label">Judul</label>
-      <input type="text" class="form-control" id="" name="">
-    </div>
-    <div class="mb-3">
-      <label for="" class="form-label">Isi</label>
-      <input id="" type="hidden" name="">
-      <trix-editor input="body"></trix-editor>
-    </div>
-    <button type="" class="btn btn-primary">Simpan</button>
-  </form>
-  </div>
-
-  <script>
-    document.addEventListener('trix-file-accept', function(e){
-        e.preventDefault();
-    })
-  </script>
+</div>
 @endsection

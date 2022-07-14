@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Deseases;
 use App\Models\Symptoms;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        User::Create([
+            'name'=> 'Falah Insan Pratama',
+            'email'=> 'falahinsan4@gmail.com',
+            'level'=> 'Admin',
+            'password' => 'Falah Insan Pratama'
+        ]);
+
         Deseases::Create([
             'kodepenyakit'=>'P001',
             'namapenyakit'=>'HIV Stadium I'

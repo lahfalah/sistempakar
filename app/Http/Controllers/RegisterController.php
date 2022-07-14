@@ -27,6 +27,21 @@ class RegisterController extends Controller
 
         return redirect('/login')->with('success', 'Daftar Akun Berhasil');
     }
+
+    public function storeadmin(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => ['required'],
+            'email' => ['required', 'unique:users', 'email:dns'],
+            'password' => ['required', 'min:5'],
+            'level' => ['required'],
+        ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        User::create($validatedData);
+
+        return redirect('/admin/users')->with('success', 'Daftar Admin Berhasil');
+    }
     
     public function semua(){
         $data = User::all();

@@ -50,7 +50,8 @@ Route::get('/laporan',  function(){
 Route::get('/admin',  function(){
     return view('admin.layouts.index');
 });
-Route::get('/admin/users', [RegisterController::class, 'semua']);
+
+
 // Route::get('/admin/informations',  function(){
 //     return view('admin.informations.index');
 // });
@@ -71,5 +72,6 @@ Route::resource('/admin/informations', InformationsController::class);
 Route::resource('/admin/diagnosis', DiagnosaController::class);
 Route::get('/admin/rule/{id}', [DiagnosaController::class, 'rule'])->name('rule');
 Route::post('/admin/rule', [DiagnosaController::class, 'store_diagnose'])->name('store_diagnose');
-
-// Route::resource('/admin/diagnosis', DiagnosasController::class);
+Route::get('/admin/users', [RegisterController::class, 'semua']);
+Route::get('/admin/users/create',  function(){ return view('admin.users.create');});
+Route::post('/admin/users/create', [RegisterController::class, 'storeadmin']);
