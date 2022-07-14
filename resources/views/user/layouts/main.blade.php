@@ -58,7 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="row">
                         <!-- /.col-md-6 -->
                         <div class="col-lg-12">
-                                @yield('container')
+                            @yield('container')
                         </div>
                         <!-- /.col-md-6 -->
                     </div>

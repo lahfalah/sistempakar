@@ -34,12 +34,12 @@
                     <a class="nav-link">Selamat Datang</a>
                 </li>
                 @if (Auth::user()->level == 'Admin')
-                    <li>
-                        <a class="nav-link" href="admin">
-                            <i class="fa-solid fa-gears"></i>
-                        </a>
-                    </li>
-                @endif
+                <li>
+                    <a class="nav-link" href="admin">
+                        <i class="fa-solid fa-gears"></i>
+                    </a>
+                </li>
+            @endif
                 <li>
                     <form action="/logout" method="POST">
                         @csrf
@@ -54,6 +54,7 @@
                     </a>
                 </li>
             @endauth
+            
         </ul>
     </div>
 </nav>

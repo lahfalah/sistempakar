@@ -25,6 +25,7 @@ use App\Models\Diagnosa;
 // Login dan Register
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
 Route::get('/login', [LoginController::class, 'index'])
     ->name('login')
     ->middleware('guest');
@@ -33,10 +34,13 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 // HALAMAN PENGGUNA
-Route::get('/', [UsersInformationsController::class, 'index'])->middleware('auth');
+Route::get('/', [UsersInformationsController::class, 'index'])->middleware('guest');
 //Halaman informasi selengkapnya
-Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class, 'show'])->middleware('auth');
+Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class, 'show'])->middleware('guest');
 Route::get('/diagnosis', [UsersDiagnosisController::class, 'index'])->middleware('auth');
+Route::post('/diagnosis', [UsersDiagnosisController::class, 'diagnosaken'])->middleware('auth');
+
+
 Route::get('/laporan', function () {
     return view('user.laporan', [
         'title' => 'Hasil Laporan',

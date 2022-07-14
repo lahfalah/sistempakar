@@ -115,8 +115,8 @@
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="level" class="form-control mb-3 text-muted"
-                        id="level" placeholder="" required value="User" readonly>
+                    <input type="hidden" name="level" class="form-control mb-3 text-muted" id="level"
+                        placeholder="" required value="User" readonly>
                     <div class="row">
 
                         <div class="col-12">

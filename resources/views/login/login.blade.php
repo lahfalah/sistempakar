@@ -98,8 +98,8 @@
                 <form action="/login" method="POST">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email"
-                            autofocus required value="{{ old('email') }}">
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                            id="email" placeholder="Email" autofocus required value="{{ old('email') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <div class="invalid-feedback"></div>
@@ -108,7 +108,8 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password"
+                        <input type="password" name="password"
+                            class="form-control @error('password') is-invalid @enderror" id="password"
                             placeholder="Kata Sandi" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -151,9 +152,9 @@
         <script>
             $(document).Toasts(
                 Swal.fire({
-  icon: 'error',
-  title: '{{ \Session::get('loginerror') }}',
-}))
+                    icon: 'error',
+                    title: '{{ \Session::get('loginerror') }}',
+                }))
         </script>
     @endif
 </body>

@@ -1,22 +1,22 @@
 @extends('user.layouts.main')
 
 @section('container')
-<h2 class="text-center mb-3">Penyakit HIV/AIDS</h2> 
-@foreach ($data as $d)
-<div class="card">
-<div class="card-header">
-    <a href="/utama/{{ $d->id }}" class="text-decoration-none text-dark">
-    <h6 class="card-title m-0"><b> {{ $d->judul }} </b></h6>
-</a>
-</div>
-<div class="card-body">
-    <h6 class="card-title">Belum Di Isi</h6>
+    <h2 class="text-center mb-3">Penyakit HIV/AIDS</h2>
+    @foreach ($data as $d)
+        <div class="card">
+            <div class="card-header">
+                <a href="/utama/{{ $d->id }}" class="text-decoration-none text-dark">
+                    <h6 class="card-title m-0"><b> {{ $d->judul }} </b></h6>
+                </a>
+            </div>
+            <div class="card-body">
+                <h6 class="card-title">Belum Di Isi</h6>
 
-    <p class="card-text">Isi ......</p>
-    <a href="/utama/{{ $d->id }}" class="btn btn-primary">Lihat Selengkapnya</a>
-</div>
-</div>
-@endforeach
+                <p class="card-text">Isi ......</p>
+                <a href="/utama/{{ $d->id }}" class="btn btn-primary">Lihat Selengkapnya</a>
+            </div>
+        </div>
+    @endforeach
 
     {{-- <h2 class="text-center">Penyakit HIV/AIDS</h2> 
     @foreach ($data as $d)
@@ -31,5 +31,4 @@
 </div>
 </div>
     @endforeach --}}
-    
 @endsection
