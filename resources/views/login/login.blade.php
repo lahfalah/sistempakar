@@ -24,7 +24,7 @@
     <script src="{{ asset('Template') }}/dist/js/adminlte.min.js?v=3.2.0"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
-    
+
     <script nonce="56de365c-6d68-40df-935e-ad30d5a7df30">
         (function(w, d) {
             ! function(a, e, t, r) {
@@ -98,19 +98,21 @@
                 <form action="/login" method="POST">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Email"
-                            autofocus required>
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email"
+                            autofocus required value="{{ old('email') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
+                                <div class="invalid-feedback"></div>
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" id="password"
+                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password"
                             placeholder="Kata Sandi" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
+                                <div class="invalid-feedback"></div>
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
@@ -142,6 +144,16 @@
                     title: '{{ \Session::get('success') }}',
                     timer: 1500
                 }))
+        </script>
+    @endif
+
+    @if (\Session::has('loginerror'))
+        <script>
+            $(document).Toasts(
+                Swal.fire({
+  icon: 'error',
+  title: '{{ \Session::get('loginerror') }}',
+}))
         </script>
     @endif
 </body>

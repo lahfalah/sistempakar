@@ -25,18 +25,32 @@
             </ul>
         </div>
 
+
+
         <!-- Right navbar links -->
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-            <li>
-                <a class="nav-link" href="admin">
-                    <i class="fa-solid fa-gears"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login">
-                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                </a>
-            </li>
+            @auth
+                <li>
+                    <a class="nav-link">Selamat Datang</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="admin">
+                        <i class="fa-solid fa-gears"></i>
+                    </a>
+                </li>
+                <li>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit" class="nav-link border-0 bg-transparent"><i class="fas fa-sign-out"></i></button>
+                    </form>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="login">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                </li>
+            @endauth
         </ul>
     </div>
 </nav>

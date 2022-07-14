@@ -52,11 +52,17 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto mr-4">
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/login" class="nav-link">
-                        <i class="fas fa-sign-out"></i>
-                    </a>
+                @auth
+                <li>
+                    <a class="nav-link">Selamat Datang Admin</a>
                 </li>
+                <li>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit" class="nav-link border-0 bg-transparent"><i class="fas fa-sign-out"></i></button>
+                    </form>
+                </li>
+            @endauth
             </ul>
         </nav>
         <!-- /.navbar -->
