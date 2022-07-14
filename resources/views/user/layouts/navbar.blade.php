@@ -33,15 +33,18 @@
                 <li>
                     <a class="nav-link">Selamat Datang</a>
                 </li>
-                <li>
-                    <a class="nav-link" href="admin">
-                        <i class="fa-solid fa-gears"></i>
-                    </a>
-                </li>
+                @if (Auth::user()->level == 'Admin')
+                    <li>
+                        <a class="nav-link" href="admin">
+                            <i class="fa-solid fa-gears"></i>
+                        </a>
+                    </li>
+                @endif
                 <li>
                     <form action="/logout" method="POST">
-                        @csrf 
-                        <button type="submit" class="nav-link border-0 bg-transparent"><i class="fas fa-sign-out"></i></button>
+                        @csrf
+                        <button type="submit" class="nav-link border-0 bg-transparent"><i
+                                class="fas fa-sign-out"></i></button>
                     </form>
                 </li>
             @else

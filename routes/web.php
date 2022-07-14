@@ -23,55 +23,46 @@ use App\Models\Diagnosa;
 |
 */
 // Login dan Register
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/login', [LoginController::class, 'index'])
+    ->name('login')
+    ->middleware('guest');
+
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'store']);
-
-
 // HALAMAN PENGGUNA
-
-Route::get('/', [UsersInformationsController::class, 'index']);
+Route::get('/', [UsersInformationsController::class, 'index'])->middleware('auth');
 //Halaman informasi selengkapnya
-Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class, 'show']);
-
-Route::get('/diagnosis', [UsersDiagnosisController::class, 'index']);
-
-Route::get('/laporan',  function(){
-    return view('user.laporan',[
-        "title"=>"Hasil Laporan"
+Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class, 'show'])->middleware('auth');
+Route::get('/diagnosis', [UsersDiagnosisController::class, 'index'])->middleware('auth');
+Route::get('/laporan', function () {
+    return view('user.laporan', [
+        'title' => 'Hasil Laporan',
     ]);
-});
+})->middleware('auth');
 
-
-// KHUSUS ROUTE ADMIN DASHBOARD BERISI DATA DATA
-Route::get('/admin',  function(){
+// HALAMAN ADMIN
+Route::get('/admin', function () {
     return view('admin.layouts.index');
-});
+})->middleware('admin');
 
-
-// Route::get('/admin/informations',  function(){
-//     return view('admin.informations.index');
-// });
-// Route::get('/admin/deseases',  function(){
-//     return view('admin.deseases.index');
-// });
-// Route::get('/admin/symptoms',  function(){
-//     return view('admin.symptom.index');
-// });
-// Route::get('/admin/diagnosis',  function(){
-//     return view('admin.diagnosis.index');
-// });
-
-//ROUTE CONTROLLER
-Route::resource('/admin/deseases', DeseasesController::class);
-Route::resource('/admin/symptoms', SymptomsController::class);
+Route::resource('/admin/deseases', DeseasesController::class)->middleware('admin');
+Route::resource('/admin/symptoms', SymptomsController::class)->middleware('admin');
 Route::resource('/admin/informations', InformationsController::class);
-Route::resource('/admin/diagnosis', DiagnosaController::class);
-Route::get('/admin/rule/{id}', [DiagnosaController::class, 'rule'])->name('rule');
-Route::post('/admin/rule', [DiagnosaController::class, 'store_diagnose'])->name('store_diagnose');
-Route::get('/admin/users', [RegisterController::class, 'semua']);
-Route::get('/admin/users/create',  function(){ return view('admin.users.create');});
-Route::post('/admin/users/create', [RegisterController::class, 'storeadmin']);
+Route::resource('/admin/diagnosis', DiagnosaController::class)->middleware('admin');
+Route::get('/admin/rule/{id}', [DiagnosaController::class, 'rule'])
+    ->name('rule')
+    ->middleware('admin');
+
+Route::post('/admin/rule', [DiagnosaController::class, 'store_diagnose'])
+    ->name('store_diagnose')
+    ->middleware('admin');
+
+Route::get('/admin/users', [RegisterController::class, 'semua'])->middleware('admin');
+Route::get('/admin/users/create', function () {
+    return view('admin.users.create');
+})->middleware('admin');
+
+Route::post('/admin/users/create', [RegisterController::class, 'storeadmin'])->middleware('admin');

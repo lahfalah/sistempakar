@@ -41,10 +41,9 @@
                                 <table id="example2" class="table table-bordered table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th style="width: 70px" class="text-center">No</th>
-                                            <th style="width: 350px" class="text-center">Nama Lengkap</th>
+                                            <th style="width: 100px" class="text-center">No</th>
+                                            <th class="text-center">Nama Lengkap</th>
                                             <th class="text-center">Email</th>
-                                            <th class="text-center">Level</th>
                                             <th style="width: 100px" class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
@@ -58,11 +57,7 @@
                                                     <th scope="row" class="text-center">{{ $no++ }}</th>
                                                     <td class="text-center">{{ $d->name }}</td>
                                                     <td class="text-center">{{ $d->email }}</td>
-                                                    <td class="text-center">{{ $d->level }}</td>
                                                     <td class="text-center">
-                                                        {{-- UPDATE --}}
-                                                        <a href="" class="badge bg-warning"><i
-                                                                class="fas fa-edit"></i></a>
                                                         {{-- DELETE --}}
                                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                             action="" method="POST" class="d-inline">
@@ -115,11 +110,9 @@
                                 <table id="example2" class="table table-bordered table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th style="width: 70px" class="text-center">No</th>
-                                            <th style="width: 350px" class="text-center">Nama Lengkap</th>
+                                            <th style="width: 100px" class="text-center">No</th>
+                                            <th class="text-center">Nama Lengkap</th>
                                             <th class="text-center">Email</th>
-                                            <th class="text-center">Level</th>
-                                            <th style="width: 100px" class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     @php
@@ -132,20 +125,6 @@
                                                     <th scope="row" class="text-center">{{ $no++ }}</th>
                                                     <td class="text-center">{{ $d->name }}</td>
                                                     <td class="text-center">{{ $d->email }}</td>
-                                                    <td class="text-center">{{ $d->level }}</td>
-                                                    <td class="text-center">
-                                                        {{-- UPDATE --}}
-                                                        <a href="" class="badge bg-warning"><i
-                                                                class="fas fa-edit"></i></a>
-                                                        {{-- DELETE --}}
-                                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                            action="" method="POST" class="d-inline">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="badge bg-danger border-0"><i
-                                                                    class="fas fa-trash-alt"></i></button>
-                                                        </form>
-                                                    </td>
                                                 </tr>
                                         @endif
                                     @endforeach

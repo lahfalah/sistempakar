@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Deseases;
 use App\Models\Symptoms;
-use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'name'=> 'Falah Insan Pratama',
             'email'=> 'falahinsan4@gmail.com',
             'level'=> 'Admin',
-            'password' => 'Falah Insan Pratama'
+            'password' => Hash::make('FalahInsan')
         ]);
 
         Deseases::Create([

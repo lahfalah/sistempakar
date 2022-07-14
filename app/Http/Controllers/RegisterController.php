@@ -47,4 +47,24 @@ class RegisterController extends Controller
         $data = User::all();
         return view('admin.users.index', compact('data'));
     }
+
+    public function destroy($id)
+    {
+        $data = User::findOrFail($id);
+        $data->delete();
+
+        if ($data) {
+            return redirect()
+                ->route('users.index')
+                ->with([
+                    'success' => 'Data Admin Berhasil Dihapus'
+                ]);
+        } else {
+            return redirect()
+                ->route('users.index')
+                ->with([
+                    'error' => 'Some problem has occurred, please try again'
+                ]);
+        }
+    }
 }
