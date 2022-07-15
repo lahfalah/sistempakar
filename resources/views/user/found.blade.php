@@ -1,4 +1,6 @@
+
 @extends('user.layouts.main')
 @section('container')
-    <h2 class="text-center">Halaman Laporan</h2>
+<h1>Penyakit Ditemukan</h1>
+<p>Terdiagnosa : {{ $hasil }}</p>
 @endsection

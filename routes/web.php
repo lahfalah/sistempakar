@@ -34,10 +34,10 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 // HALAMAN PENGGUNA
-Route::get('/', [UsersInformationsController::class, 'index'])->middleware('guest');
+Route::get('/', [UsersInformationsController::class, 'index']);
 //Halaman informasi selengkapnya
-Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class, 'show'])->middleware('guest');
-Route::get('/diagnosis', [UsersDiagnosisController::class, 'index'])->middleware('auth');
+Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class, 'show']);
+Route::get('/diagnosis', [UsersDiagnosisController::class, 'index'])->middleware('auth')->name('diagnosis');
 Route::post('/diagnosis', [UsersDiagnosisController::class, 'diagnosaken'])->middleware('auth');
 
 
