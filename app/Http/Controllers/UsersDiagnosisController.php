@@ -39,8 +39,9 @@ class UsersDiagnosisController extends Controller
                     $temp[] = strval($ditemukan->gejala->id);
                 }
 
-                $count = count(array_diff($temp, $deseases));
-                if ($count == 0) {
+                // dd($temp, $deseases, array_diff($deseases, $temp));
+                $count = count(array_diff($deseases, $temp));
+                if ($deseases == $temp) {
                     $result = $d
                         ->penyakit()
                         ->get()
