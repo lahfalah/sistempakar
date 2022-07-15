@@ -5,9 +5,16 @@
     <script>
         $(document).Toasts(
             Swal.fire({
-                icon: 'error',
-                title: '{{ \Session::get('aturan') }}',
-            }))
+  position: 'top-end',
+  icon: 'warning',
+  title: '{{ \Session::get('aturan') }}',
+  showConfirmButton: false,
+  timer: 1500
+}))
+            // Swal.fire({
+            //     icon: 'warning',
+            //     title: '{{ \Session::get('aturan') }}',
+            // }))
     </script>
     @endif
     <div class="card-body">

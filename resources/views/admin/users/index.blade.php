@@ -57,7 +57,6 @@
                                                     <th scope="row" class="text-center">{{ $no++ }}</th>
                                                     <td class="text-center">{{ $d->name }}</td>
                                                     <td class="text-center">{{ $d->email }}</td>
-                                                    <td class="text-center">{{ $d->level }}</td>
                                                     <td class="text-center">
                                                         {{-- DELETE --}}
                                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');"

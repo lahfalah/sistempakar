@@ -24,7 +24,7 @@ class UsersDiagnosisController extends Controller
             return redirect()
                 ->route('diagnosis')
                 ->with([
-                    'aturan' => 'Mohon Pilih Gejala',
+                    'aturan' => 'Mohon Pilih Gejala !!!',
                 ]);
         }
         $diagnosa = Diagnosa::all();
