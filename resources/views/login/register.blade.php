@@ -9,6 +9,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
+
     <link rel="stylesheet" href="{{ asset('Template') }}/plugins/fontawesome-free/css/all.min.css">
 
     <link rel="stylesheet" href="{{ asset('Template') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
@@ -73,11 +74,28 @@
         })(window, document);
     </script>
 </head>
+{{-- Acak Acak Style --}}
+<style>
+    .halaman {
+        -ms-flex-align: center;
+        align-items: center;
+        height: 200px;
+        background-color: #cccccc;
+        background-image: linear-gradient(rgb(134, 35, 35), rgb(59, 0, 0), rgb(0, 0, 0));
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        height: 100vh;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+</style>
 
-<body class="hold-transition register-page">
+<body class="hold-transition register-page halaman dark-mode">
     <div class="register-box">
         <div class="register-logo">
-            <img src="/img/hiv.png" width="100" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="/img/hiv.png" width="70" class="brand-image img-circle elevation-3" style="opacity: .8">
         </div>
         <div class="card">
             <div class="card-body register-card-body">
@@ -120,13 +138,13 @@
                     <div class="row">
 
                         <div class="col-12">
-                            <button type="submit" class="btn btn-success btn-block">Daftar Akun</button>
+                            <button type="submit" class="btn btn-outline-light btn-block">Daftar Akun</button>
                         </div>
 
                     </div>
                 </form>
                 <div class="mt-4">
-                    <a href="login" class="text-center">Sudah Mempunyai Akun.! Silahkan Masuk</a>
+                    <a href="login" class="text-center"><button class="btn btn-outline-warning btn-block">Sudah Mempunyai Akun.! Silahkan Masuk</button></a>
                 </div>
             </div>
 

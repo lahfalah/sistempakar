@@ -31,15 +31,15 @@
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
             @auth
                 <li>
-                    <a class="nav-link">Selamat Datang</a>
+                    <a class="nav-link">{{ auth()->user()->name }}</a>
                 </li>
                 @if (Auth::user()->level == 'Admin')
-                <li>
-                    <a class="nav-link" href="admin">
-                        <i class="fa-solid fa-gears"></i>
-                    </a>
-                </li>
-            @endif
+                    <li>
+                        <a class="nav-link" href="admin">
+                            <i class="fa-solid fa-gears"></i>
+                        </a>
+                    </li>
+                @endif
                 <li>
                     <form action="/logout" method="POST">
                         @csrf
@@ -54,7 +54,6 @@
                     </a>
                 </li>
             @endauth
-            
         </ul>
     </div>
 </nav>

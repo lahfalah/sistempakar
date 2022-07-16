@@ -2,20 +2,15 @@
 @section('container')
     <h2 class="text-center">Pilih Gejala Yang Dialami</h2>
     @if (\Session::has('aturan'))
-    <script>
-        $(document).Toasts(
+        <script>
             Swal.fire({
-  position: 'top-end',
-  icon: 'warning',
-  title: '{{ \Session::get('aturan') }}',
-  showConfirmButton: false,
-  timer: 1500
-}))
-            // Swal.fire({
-            //     icon: 'warning',
-            //     title: '{{ \Session::get('aturan') }}',
-            // }))
-    </script>
+                position: 'center',
+                icon: 'warning',
+                title: '{{ \Session::get('aturan') }}',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
     @endif
     <div class="card-body">
         <div class="row">
@@ -37,7 +32,7 @@
                             Cek Diagnosa
                         </button>
                     </p>
-   
+
                 </form>
             </div>
         </div>

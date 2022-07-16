@@ -83,21 +83,35 @@
         })(window, document);
     </script>
 </head>
+{{-- Acak Acak Style --}}
+<style>
+    .halaman {
+        -ms-flex-align: center;
+        align-items: center;
+        height: 200px;
+        background-color: #cccccc;
+        background-image: linear-gradient(rgb(134, 35, 35), rgb(59, 0, 0), rgb(0, 0, 0));
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        height: 100vh;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+</style>
 
 
-
-<body class="hold-transition login-page">
+<body class="hold-transition login-page halaman dark-mode">
     <div class="login-box">
         <div class="login-logo">
-            <img src="/img/hiv.png" width="100" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="/img/hiv.png" width="70" class="brand-image img-circle elevation-3" style="opacity: .8">
         </div>
-
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Selamat Datang</p>
                 <form action="/login" method="POST">
                     @csrf
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 mt-4">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                             id="email" placeholder="Email" autofocus required value="{{ old('email') }}">
                         <div class="input-group-append">
@@ -119,23 +133,20 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 pt-4">
-                            <button type="submit" class="btn btn-success btn-block">Masuk</button>
+                        <div class="col-12 pt-2">
+                            <button type="submit" class="btn btn-outline-success btn-block">Masuk</button>
                         </div>
                     </div>
                 </form>
-                <div class="social-auth-links tex-center mb-2 mt-3">
-                    {{-- <p>
-                        <a href="forgot-password.html">Lupa Kata Sandi..!</a>
-                    </p> --}}
-                    <p>
-                        <a href="register" class="text-center">Belum Punya Akun..! Silahkan Daftar</a>
-                    </p>
+                <div class="mt-4">
+                    <a href="register" class="text-center"><button class="btn btn-outline-danger btn-block">Belum Punya Akun..! Silahkan Daftar</button></a>
                 </div>
             </div>
-
         </div>
     </div>
+
+
+
     @if (\Session::has('success'))
         <script>
             $(document).Toasts(
@@ -154,6 +165,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: '{{ \Session::get('loginerror') }}',
+                    timer: 1500
                 }))
         </script>
     @endif

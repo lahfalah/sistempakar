@@ -47,15 +47,12 @@ class UsersDiagnosisController extends Controller
                         ->get()
                         ->all()[0]->namapenyakit;
                     return view('user.found', ['hasil' => $result]);
-
                     $result = $d[0]->penyakit;
                     $isFound = true;
                 }
             }
         }
-
         if (!$isFound) {
-            // return ('Eweh panyakitan');
             return view('user.notfound');
         }
     }
