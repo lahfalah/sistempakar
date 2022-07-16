@@ -85,10 +85,12 @@
 </head>
 {{-- Acak Acak Style --}}
 <style>
+    /* Untuk Background */
     .halaman {
         -ms-flex-align: center;
         align-items: center;
         height: 200px;
+        /* background-image: url(../img/hiv.png); */
         background-color: #cccccc;
         background-image: linear-gradient(rgb(134, 35, 35), rgb(59, 0, 0), rgb(0, 0, 0));
         display: -ms-flexbox;
@@ -99,8 +101,8 @@
         -ms-flex-pack: center;
         justify-content: center;
     }
-</style>
 
+</style>
 
 <body class="hold-transition login-page halaman dark-mode">
     <div class="login-box">
@@ -139,7 +141,8 @@
                     </div>
                 </form>
                 <div class="mt-4">
-                    <a href="register" class="text-center"><button class="btn btn-outline-danger btn-block">Belum Punya Akun..! Silahkan Daftar</button></a>
+                    <a href="register" class="text-center"><button class="btn btn-outline-danger btn-block">Belum Punya
+                            Akun..! Silahkan Daftar</button></a>
                 </div>
             </div>
         </div>

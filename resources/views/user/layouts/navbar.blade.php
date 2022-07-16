@@ -1,6 +1,6 @@
 <nav class="main-header navbar navbar-expand-md navbar-maroon navbar-light">
     <div class="container">
-        <a href="" class="navbar-brand">
+        <a href="/" class="navbar-brand">
             <img src="/img/hiv.png" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light"></span>
         </a>

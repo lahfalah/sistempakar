@@ -24,7 +24,7 @@ class UsersDiagnosisController extends Controller
             return redirect()
                 ->route('diagnosis')
                 ->with([
-                    'aturan' => 'Mohon Pilih Gejala !!!',
+                    'aturan' => 'Isi Gejala..!!',
                 ]);
         }
         $diagnosa = Diagnosa::all();
@@ -53,7 +53,11 @@ class UsersDiagnosisController extends Controller
             }
         }
         if (!$isFound) {
-            return view('user.notfound');
+            return redirect()
+                ->route('diagnosis')
+                ->with([
+                    'maaf' => 'Penyakit Tidak Ditemukan',
+                ]);
         }
     }
 }
