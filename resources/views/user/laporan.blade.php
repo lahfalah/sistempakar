@@ -2,7 +2,7 @@
 @section('container')
     <div class="card card-maroon">
         <div class="card-header">
-            <h3 class="text-center">Riwayat Laporan</h3>
+            <h3 class="text-center">Riwayat Diagnosa</h3>
         </div>
         <div class="container">
             <div class="row">
@@ -14,7 +14,7 @@
                                     <tr>
                                         <th style="width: 70px" class="text-center">No</th>
                                         <th style="width: 200px" class="text-center">Nama Penyakit</th>
-                                        <th class="text-center">Banyak Gejala</th>
+                                        <th class="text-center">Jumlah Gejala</th>
                                         <th style="width: 120px" class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
