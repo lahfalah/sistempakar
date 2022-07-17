@@ -48,6 +48,7 @@ class UsersDiagnosisController extends Controller
                         ->all()[0]->namapenyakit;
                     Laporan::create(['diagnosas_id' => $d->id, 'user_id' => Auth::id()]);
                     $isFound = true;
+                    return view('user.found', ['hasil' => $result]);
                 }
             }
         }
