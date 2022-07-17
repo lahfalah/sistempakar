@@ -90,9 +90,9 @@
         -ms-flex-align: center;
         align-items: center;
         height: 200px;
-        /* background-image: url(../img/hiv.png); */
-        background-color: #cccccc;
-        background-image: linear-gradient(rgb(134, 35, 35), rgb(59, 0, 0), rgb(0, 0, 0));
+        /* background-image: url(../img/bg1.jpg); */
+        background-color: black;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.800), rgba(255, 0, 0, 0.800));
         display: -ms-flexbox;
         display: flex;
         -ms-flex-direction: column;
@@ -101,16 +101,15 @@
         -ms-flex-pack: center;
         justify-content: center;
     }
-
 </style>
 
-<body class="hold-transition login-page halaman dark-mode">
+<body class="hold-transition login-page halaman">
     <div class="login-box">
         <div class="login-logo">
             <img src="/img/hiv.png" width="70" class="brand-image img-circle elevation-3" style="opacity: .8">
         </div>
         <div class="card">
-            <div class="card-body login-card-body">
+            <div class="card-body login-card-body" style="background-color: #161a1d">
                 <form action="/login" method="POST">
                     @csrf
                     <div class="input-group mb-3 mt-4">
@@ -152,24 +151,26 @@
 
     @if (\Session::has('success'))
         <script>
-            $(document).Toasts(
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'success',
-                    title: '{{ \Session::get('success') }}',
-                    timer: 1500
-                }))
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: '{{ \Session::get('success') }}',
+                // text: 'Something went wrong!'
+                showConfirmButton: false,
+                timer: 1500
+            })
         </script>
     @endif
 
     @if (\Session::has('loginerror'))
         <script>
-            $(document).Toasts(
-                Swal.fire({
-                    icon: 'error',
-                    title: '{{ \Session::get('loginerror') }}',
-                    timer: 1500
-                }))
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: '{{ \Session::get('loginerror') }}',
+                showConfirmButton: false,
+                timer: 1500
+            })
         </script>
     @endif
 </body>

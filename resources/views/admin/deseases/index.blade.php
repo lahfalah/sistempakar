@@ -18,7 +18,6 @@
                                                 class="fas fa-plus-square"></i> Tambah Data Penyakit</button>
                                     </a>
                                 </div>
-
                                 @if (count($errors) > 0)
                                     <div class="alert alert-danger alert-dismissible">
                                         <ul>
@@ -29,15 +28,15 @@
                                     </div>
                                 @endif
                                 @if (\Session::has('success'))
-                                <script>
-                                    $(document).Toasts(
-                                        Swal.fire({
-                                            position: 'top-center',
-                                            icon: 'success',
-                                            title: '{{ \Session::get('success') }}',
-                                            timer: 2000
-                                        }))
-                                </script>
+                                    <script>
+                                        $(document).Toasts(
+                                            Swal.fire({
+                                                position: 'top-center',
+                                                icon: 'success',
+                                                title: '{{ \Session::get('success') }}',
+                                                timer: 2000
+                                            }))
+                                    </script>
                                 @endif
                                 <table id="example2" class="table table-bordered table-striped table-hover">
                                     <thead>
@@ -78,6 +77,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 @endsection

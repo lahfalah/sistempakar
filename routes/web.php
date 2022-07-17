@@ -10,6 +10,7 @@ use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DiagnosasItemController;
+use App\Http\Controllers\LaporanController;
 use App\Models\Diagnosa;
 
 /*
@@ -41,11 +42,7 @@ Route::get('/diagnosis', [UsersDiagnosisController::class, 'index'])->middleware
 Route::post('/diagnosis', [UsersDiagnosisController::class, 'diagnosaken'])->middleware('auth');
 
 
-Route::get('/laporan', function () {
-    return view('user.laporan', [
-        'title' => 'Hasil Laporan',
-    ]);
-})->middleware('auth');
+Route::get('/laporan', [LaporanController::class, 'index'])->middleware('auth');
 
 // HALAMAN ADMIN
 Route::get('/admin', function () {

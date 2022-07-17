@@ -1,8 +1,7 @@
-<nav class="main-header navbar navbar-expand-md navbar-maroon navbar-light">
+<nav class="main-header navbar navbar-expand-md navbar-dark" style="background-color: #9d0208">
     <div class="container">
         <a href="/" class="navbar-brand">
             <img src="/img/hiv.png" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light"></span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"

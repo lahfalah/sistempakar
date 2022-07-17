@@ -80,8 +80,8 @@
         -ms-flex-align: center;
         align-items: center;
         height: 200px;
-        background-color: #cccccc;
-        background-image: linear-gradient(rgb(134, 35, 35), rgb(59, 0, 0), rgb(0, 0, 0));
+        background-color: black;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.800), rgba(255, 0, 0, 0.800));
         display: -ms-flexbox;
         display: flex;
         -ms-flex-direction: column;
@@ -92,13 +92,13 @@
     }
 </style>
 
-<body class="hold-transition register-page halaman dark-mode">
+<body class="hold-transition register-page halaman">
     <div class="register-box">
         <div class="register-logo">
             <img src="/img/hiv.png" width="70" class="brand-image img-circle elevation-3" style="opacity: .8">
         </div>
         <div class="card">
-            <div class="card-body register-card-body">
+            <div class="card-body register-card-body" style="background-color: #161a1d">
                 <p class="login-box-msg">Silahkan Daftar</p>
                 <form action="/register" method="POST">
                     @csrf

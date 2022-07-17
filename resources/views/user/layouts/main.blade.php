@@ -9,9 +9,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sistem Pakar HIV/AIDS</title>
-
-    <!-- Google Font: Source Sans Pro -->
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -33,85 +30,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
 </head>
 
+<style>
 
-<body class="hold-transition layout-top-nav">
+    .kartu {
+        background-color: #ffb3c1;
+        border-radius: 10px;
+    }
+</style>
+
+<body class="hold-transition layout-top-nav" style="background-image: linear-gradient(to top, #03071e, #9d0208)">
     <div class="wrapper">
 
         <!-- Navbar -->
         @include('user.layouts.navbar')
         <!-- /.navbar -->
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container">
-                    <div class="row mb-0">
-                        <div class="col-sm-6"></div><!-- /.col -->
-                        <div class="col-sm-6"></div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-
-            <!-- Main content -->
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <!-- /.col-md-6 -->
-                        <div class="col-lg-12">
-                            @yield('container')
-                        </div>
-                        <!-- /.col-md-6 -->
+        <!-- Main content -->
+        <div class="content pt-4 pb-4">
+            <div class="container">
+                <div class="row">
+                    <!-- /.col-md-6 -->
+                    <div class="col-lg-12">
+                        @yield('container')
                     </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content -->
+                    <!-- /.col-md-6 -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-wrapper -->
-
-        <!-- Main Footer -->
-        <footer class="main-footer bg-maroon">
-            <!-- To the right -->
-            {{-- <div class="float-right d-none d-sm-inline">
-                <b>Falah Insan Pratama &copy; 2022 </b>
-            </div> --}}
-            <!-- Default to the left -->
-            <strong>Sistem Pakar HIV/AIDS</strong>
-        </footer>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->
     <script src="https://kit.fontawesome.com/f259651f11.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-{{-- <!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <title>{{ $title }}</title>
-  </head>
-  <body>
-    @include('user.layouts.navbar')
-    <div class="container mt-3">
-        @yield('container')
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </body>
-</html> --}}

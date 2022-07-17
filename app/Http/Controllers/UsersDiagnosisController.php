@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diagnosa;
+use App\Models\Laporan;
 use App\Models\Symptoms;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersDiagnosisController extends Controller
 {
@@ -39,13 +41,12 @@ class UsersDiagnosisController extends Controller
                     $temp[] = strval($ditemukan->gejala->id);
                 }
 
-                // dd($temp, $deseases, array_diff($deseases, $temp));
-                $count = count(array_diff($deseases, $temp));
                 if ($deseases == $temp) {
                     $result = $d
                         ->penyakit()
                         ->get()
                         ->all()[0]->namapenyakit;
+                    Laporan::create(['diagnosas_id'=> $d->id, 'user_id' => Auth::id()]);
                     return view('user.found', ['hasil' => $result]);
                     $result = $d[0]->penyakit;
                     $isFound = true;
