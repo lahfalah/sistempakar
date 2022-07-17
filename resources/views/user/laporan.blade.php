@@ -18,7 +18,6 @@
                                         <th style="width: 120px" class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
-                                {{-- @if ((Auth::user()->name)) --}}
                                 @php
                                     $no = 1;
                                 @endphp
@@ -29,13 +28,11 @@
                                             <td class="text-center">{{ $d->diagnosa->penyakit->namapenyakit }}</td>
                                             <td class="text-center">{{ count($d->diagnosa->item) }}</td>
                                             <td class="text-center">
-                                                {{-- Lihat Data  --}}
-                                                <a href=""
-                                                    class="badge bg-info"><i class="fas fa-eye"></i></a>
+                                                {{-- Lihat Data --}}
+                                                <a href="" class="badge bg-info"><i class="fas fa-eye"></i></a>
                                                 {{-- DELETE --}}
-                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                    action="" method=""
-                                                    class="d-inline">
+                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action=""
+                                                    method="" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="badge bg-danger border-0"><i
@@ -45,11 +42,10 @@
                                         </tr>
                                 @endforeach
                                 </tbody>
-                                {{-- @endif --}}
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-@endsection
+    @endsection

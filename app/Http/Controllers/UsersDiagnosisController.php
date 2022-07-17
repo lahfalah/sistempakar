@@ -36,19 +36,17 @@ class UsersDiagnosisController extends Controller
             $aturan = $d->item()->get();
             if (!$isFound) {
                 $temp = [];
-
                 foreach ($aturan as $ditemukan) {
                     $temp[] = strval($ditemukan->gejala->id);
                 }
-
+                sort($temp);
+                sort($deseases);
                 if ($deseases == $temp) {
                     $result = $d
                         ->penyakit()
                         ->get()
                         ->all()[0]->namapenyakit;
-                    Laporan::create(['diagnosas_id'=> $d->id, 'user_id' => Auth::id()]);
-                    return view('user.found', ['hasil' => $result]);
-                    $result = $d[0]->penyakit;
+                    Laporan::create(['diagnosas_id' => $d->id, 'user_id' => Auth::id()]);
                     $isFound = true;
                 }
             }
