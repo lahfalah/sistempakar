@@ -23,47 +23,52 @@ use App\Models\Diagnosa;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Login dan Register
+// CONTROLLER LOGIN REGISTER
+// Controller Register
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
-
+// Controller Login dan Logout
 Route::get('/login', [LoginController::class, 'index'])
     ->name('login')
     ->middleware('guest');
-
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-// HALAMAN PENGGUNA
+// CONTROLLER USER
+// Controller Informasi
 Route::get('/', [UsersInformationsController::class, 'index']);
-//Halaman informasi selengkapnya
 Route::get('/utama/{informasipengguna:id}', [UsersInformationsController::class, 'show']);
-Route::get('/diagnosis', [UsersDiagnosisController::class, 'index'])->middleware('auth')->name('diagnosis');
+// Controller Diagnosis
+Route::get('/diagnosis', [UsersDiagnosisController::class, 'index'])
+    ->middleware('auth')
+    ->name('diagnosis');
 Route::post('/diagnosis', [UsersDiagnosisController::class, 'diagnosaken'])->middleware('auth');
-
-
+// Controller Laporan
 Route::get('/laporan', [LaporanController::class, 'index'])->middleware('auth');
+Route::get('/cetak', [LaporanController::class, 'cetak'])->middleware('auth');
 
-// HALAMAN ADMIN
+// CONTROLLER ADMIN
+// Controller Halaman Utama
 Route::get('/admin', function () {
     return view('admin.layouts.index');
 })->middleware('admin');
-
+// Controller Data Penyakit (Desesase)
 Route::resource('/admin/deseases', DeseasesController::class)->middleware('admin');
+// Controller Data Gejala (Symptom)
 Route::resource('/admin/symptoms', SymptomsController::class)->middleware('admin');
-Route::resource('/admin/informations', InformationsController::class);
+// Controller Data Informasi
+Route::resource('/admin/informations', InformationsController::class)->middleware('admin');
+// Controller Data Aturan/Diagnosis
 Route::resource('/admin/diagnosis', DiagnosaController::class)->middleware('admin');
 Route::get('/admin/rule/{id}', [DiagnosaController::class, 'rule'])
     ->name('rule')
     ->middleware('admin');
-
 Route::post('/admin/rule', [DiagnosaController::class, 'store_diagnose'])
     ->name('store_diagnose')
     ->middleware('admin');
-
+//Controller Data Pengguna
 Route::get('/admin/users', [RegisterController::class, 'semua'])->middleware('admin');
 Route::get('/admin/users/create', function () {
     return view('admin.users.create');
 })->middleware('admin');
-
 Route::post('/admin/users/create', [RegisterController::class, 'storeadmin'])->middleware('admin');

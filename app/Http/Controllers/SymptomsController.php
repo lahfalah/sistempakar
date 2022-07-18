@@ -16,7 +16,7 @@ class SymptomsController extends Controller
      */
     public function index()
     {
-        $data=Symptoms::all();
+        $data = Symptoms::all();
         return view('admin.symptoms.index', compact('data'));
     }
 
@@ -39,14 +39,16 @@ class SymptomsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kodegejala'=>'required',
-            'namagejala'=>'required',
+            'kodegejala' => 'required',
+            'namagejala' => 'required',
         ]);
         $data = new Symptoms();
-        $data->kodegejala=$request->kodegejala;
-        $data->namagejala=$request->namagejala;
+        $data->kodegejala = $request->kodegejala;
+        $data->namagejala = $request->namagejala;
         $data->save();
-        return redirect()->route('symptoms.index')->with('success', 'Gejala Berhasil Ditambahkan');
+        return redirect()
+            ->route('symptoms.index')
+            ->with('success', 'Gejala Berhasil Ditambahkan');
     }
 
     /**
@@ -83,7 +85,7 @@ class SymptomsController extends Controller
     {
         $this->validate($request, [
             'kodegejala' => 'required',
-            'namagejala' => 'required'
+            'namagejala' => 'required',
         ]);
 
         $data = Symptoms::findOrFail($id);
@@ -97,14 +99,14 @@ class SymptomsController extends Controller
             return redirect()
                 ->route('symptoms.index')
                 ->with([
-                    'success' => 'Data Gejala Berhasil Di Edit'
+                    'success' => 'Data Gejala Berhasil Di Edit',
                 ]);
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Some problem has occured, please try again'
+                    'error' => 'Some problem has occured, please try again',
                 ]);
         }
     }
@@ -124,13 +126,13 @@ class SymptomsController extends Controller
             return redirect()
                 ->route('symptoms.index')
                 ->with([
-                    'success' => 'Data Gejala Berhasil Dihapus'
+                    'success' => 'Data Gejala Berhasil Dihapus',
                 ]);
         } else {
             return redirect()
                 ->route('symptoms.index')
                 ->with([
-                    'error' => 'Some problem has occurred, please try again'
+                    'error' => 'Some problem has occurred, please try again',
                 ]);
         }
     }

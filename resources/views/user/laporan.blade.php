@@ -1,21 +1,21 @@
 @extends('user.layouts.main')
 @section('container')
-    <div class="card card-maroon">
+    <div class="card" style="background-color:#37050777">
         <div class="card-header">
-            <h3 class="text-center">Riwayat Diagnosa</h3>
+            <h3 class="text-center text-light">Riwayat Diagnosa</h3>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col pt-3">
-                    <div class="card">
+                <div class="col">
+                    <div class="card" style="background-color:#370507">
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-striped table-hover">
+                            <table id="example2" class="table table-bordered table-striped table-dark">
                                 <thead>
                                     <tr>
-                                        <th style="width: 70px" class="text-center">No</th>
-                                        <th style="width: 200px" class="text-center">Nama Penyakit</th>
-                                        <th class="text-center">Jumlah Gejala</th>
-                                        <th style="width: 120px" class="text-center">Aksi</th>
+                                        <th style="width: 50px" class="text-center">No</th>
+                                        <th style="width: 250px" class="text-center">Penyakit</th>
+                                        <th style="width: 100px" class="text-center">Gejala</th>
+                                        <th style="width: 150px" class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 @php
@@ -27,9 +27,20 @@
                                             <th scope="row" class="text-center">{{ $no++ }}</th>
                                             <td class="text-center">{{ $d->diagnosa->penyakit->namapenyakit }}</td>
                                             <td class="text-center">{{ count($d->diagnosa->item) }}</td>
+                                            {{-- Lopping Untuk Model Gejala --}}
+                                            {{-- <td class="text-center">
+                                                <ul>
+                                                    @foreach($d->diagnosa->item as $item)
+                                                        <li>{{ $item->gejala->namagejala }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </td> --}}
+                                            
                                             <td class="text-center">
                                                 {{-- Lihat Data --}}
-                                                <a href="" class="badge bg-info"><i class="fas fa-eye"></i></a>
+                                                <a href="" class="badge bg-info show_confirm"><i
+                                                        class="fas fa-circle-info">
+                                                    </i></a>
                                                 {{-- DELETE --}}
                                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action=""
                                                     method="" class="d-inline">
@@ -44,6 +55,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        <p class="text-center">
+                            <a href="/cetak"><button class="btn btn-sm btn-success"><h4><i class="fa-solid fa-file-pdf"></i></h4></button></a>
+                        </p>
                     </div>
                 </div>
             </div>

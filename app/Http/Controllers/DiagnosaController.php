@@ -52,8 +52,6 @@ class DiagnosaController extends Controller
             ->with('success', 'Data Berhasil Ditambahkan');
     }
 
-    
-
     public function store_diagnose(Request $request)
     {
         $request->validate([

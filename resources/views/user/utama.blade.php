@@ -10,7 +10,7 @@
                     </a>
                 </div>
             </div>
-            <h1 class="text-center">{{ $d->judul }}</h1>
+            <h3 class="text-center">{{ $d->judul }}</h3>
             <small>Isi beberapa Kata kata didalam informasi</small>
             <br>
             <br>

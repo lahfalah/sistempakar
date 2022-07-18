@@ -42,8 +42,9 @@ class RegisterController extends Controller
 
         return redirect('/admin/users')->with('success', 'Daftar Admin Berhasil');
     }
-    
-    public function semua(){
+
+    public function semua()
+    {
         $data = User::all();
         return view('admin.users.index', compact('data'));
     }
@@ -57,13 +58,13 @@ class RegisterController extends Controller
             return redirect()
                 ->route('users.index')
                 ->with([
-                    'success' => 'Data Admin Berhasil Dihapus'
+                    'success' => 'Data Admin Berhasil Dihapus',
                 ]);
         } else {
             return redirect()
                 ->route('users.index')
                 ->with([
-                    'error' => 'Some problem has occurred, please try again'
+                    'error' => 'Some problem has occurred, please try again',
                 ]);
         }
     }

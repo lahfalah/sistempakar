@@ -23,7 +23,7 @@
           </div>
         </div>
 
-        <div class="col-lg-2 col-6">
+        <div class="col-sm-2 col-6">
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
@@ -38,7 +38,7 @@
             </div>
           </div>
         <!-- ./col -->
-        <div class="col-lg-2 col-6">
+        <div class="col-sm-2 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
@@ -53,7 +53,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-2 col-6">
+        <div class="col-sm-2 col-6">
           <!-- small box -->
           <div class="small-box bg-maroon">
             <div class="inner">
@@ -68,7 +68,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-2 col-6">
+        <div class="col-sm-2 col-6">
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">

@@ -1,24 +1,25 @@
 @extends('user.layouts.main')
 
 @section('container')
-    <div class="card card-maroon">
+    <div class="card" style="background-color:#37050777">
         <div class="card-header">
-            <h3 class="text-center">{{ $data->judul }}</h3>
+            <h3 class="text-center text-light">{{ $data->judul }}</h3>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col pt-3 pb-4">
-                    <div class="card">
+                <div class="col">
+                    <div class="card" style="background-color:#ffb3c1">
                         <div class="card-body">
-                            <article class="fs-6">
+                            <article class="fs">
                                 {!! $data->isi !!}
                             </article>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <br>
-                        <a href="/" class="btn btn-block btn-outline-primary">Kembali</a>
-                    </div>
+                    <p class="text-center mb-3">
+                        <a href="/"><button class="btn col-5 btn-success">
+                                Kembali
+                            </button></a>
+                    </p>
                 </div>
             </div>
         </div>

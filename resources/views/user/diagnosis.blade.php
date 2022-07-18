@@ -24,18 +24,18 @@
             })
         </script>
     @endif
-    <div class="card card-maroon">
+    <div class="card" style="background-color:#37050777">
         <div class="card-header">
-            <h3 class="text-center">Pilih Gejala Yang Dialami</h3>
+            <h3 class="text-center text-light">Pilih Gejala Yang Dialami</h3>
         </div>
         <div class="container">
             <div class="row">
                 <form action="/diagnosis" method="POST">
                     @csrf
-                    <div class="col pt-3 ">
-                        <div class="card">
+                    <div class="col">
+                        <div class="card px-2" style="background-color:#ffb3c1">
                             <div class="card-body">
-                                    @foreach ($data as $d)
+                                @foreach ($data as $d)
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="deseases[]"
                                             value="{{ $d->id }}" id="diagnos-{{ $d->id }}">
@@ -43,16 +43,16 @@
                                             {{ $d->namagejala }}
                                         </label>
                                     </div>
-                                    @endforeach
-                                </div>
+                                @endforeach
                             </div>
+                        </div>
                         <p class="text-center mb-3">
-                            <button class="btn col-6 btn-outline-success" type="submit">
+                            <button class="btn col-5 btn-success" type="submit">
                                 Cek Diagnosa
                             </button>
                         </p>
                     </div>
-                    </form>
+                </form>
             </div>
         </div>
     @endsection
