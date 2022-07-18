@@ -19,8 +19,9 @@
         <p align="center">Riwayat Diagnosa<b> {{ auth()->user()->name }}</b></p>
         <table class="static" align="center" rules="all" border="2px" style="width:90%">
             <tr>
-                <th style="width: 50px">No</th>
-                <th style="width: 150px">Penyakit</th>
+                <th style="width: 70px">No</th>
+                <th style="width: 150px">Waktu</th>
+                <th style="width: 170px">Penyakit</th>
                 <th> Nama Gejala</th>
             </tr>
             @php
@@ -31,6 +32,7 @@
                     <tr>
                         <th>{{ $no++ }}</th>
                         <td align="center">{{ $d->diagnosa->penyakit->namapenyakit }}</td>
+                        <td align="center">{{ $d->created_at }}</td>
                         {{-- <td class="text-center">{{ count($d->diagnosa->item) }}</td> --}}
                         {{-- Lopping Untuk Model Gejala --}}
                         <td>

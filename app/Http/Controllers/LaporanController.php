@@ -10,7 +10,7 @@ class LaporanController extends Controller
 {
     public function index()
     {
-        $laporan = Laporan::where(['user_id' => Auth::id()])->get();
+        $laporan = Laporan::where(['user_id' => Auth::id()])->paginate(10);
 
         return view('user.laporan', ['laporan' => $laporan]);
     }
