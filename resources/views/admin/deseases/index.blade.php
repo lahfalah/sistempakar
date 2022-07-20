@@ -44,6 +44,7 @@
                                             <th style="width: 70px" class="text-center">No</th>
                                             <th style="width: 200px" class="text-center">Kode Penyakit</th>
                                             <th class="text-center">Nama Penyakit</th>
+                                            <th class="text-center">Obat</th>
                                             <th style="width: 120px" class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
@@ -56,6 +57,7 @@
                                                 <th scope="row" class="text-center">{{ $no++ }}</th>
                                                 <td class="text-center">{{ $d->kodepenyakit }}</td>
                                                 <td class="text-center">{{ $d->namapenyakit }}</td>
+                                                <td class="text-center">{{ $d->obat }}</td>
                                                 <td class="text-center">
                                                     {{-- UPDATE --}}
                                                     <a href="{{ route('deseases.edit', $d->id) }}"

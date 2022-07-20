@@ -17,6 +17,7 @@ class CreateDeseasesTable extends Migration
             $table->id();
             $table->string('kodepenyakit');
             $table->string('namapenyakit');
+            $table->string('obat');
             $table->timestamps();
         });
     }

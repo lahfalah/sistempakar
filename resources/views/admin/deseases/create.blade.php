@@ -24,6 +24,10 @@
                             <label for="namapenyakit" class="form-label">Nama Penyakit</label>
                             <input type="text" id="namapenyakit" class="form-control" name="namapenyakit">
                         </div>
+                        <div class="form-group">
+                            <label for="obat" class="form-label">Obat</label>
+                            <input type="text" id="obat" class="form-control" name="obat">
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>

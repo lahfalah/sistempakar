@@ -10,5 +10,5 @@ class Deseases extends Model
     use HasFactory;
     protected $table = 'deseases';
     protected $primaryKey = 'id';
-    protected $fillable = ['kodepenyakit', 'namapenyakit'];
+    protected $fillable = ['kodepenyakit', 'namapenyakit', 'obat'];
 }

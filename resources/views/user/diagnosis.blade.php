@@ -20,7 +20,7 @@
             Swal.fire({
                 icon: 'error',
                 title: '{{ \Session::get('maaf') }}',
-                text: 'Mohon maaf karena keterbatasan informasi penyakit tidak ditemukan',
+                text: 'Gejala tidak ada di dalam aturan diagnosis',
             })
         </script>
     @endif

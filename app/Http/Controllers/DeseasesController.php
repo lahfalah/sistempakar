@@ -42,11 +42,13 @@ class DeseasesController extends Controller
         $request->validate([
             'kodepenyakit' => 'required',
             'namapenyakit' => 'required',
+            'obat' => 'required'
         ]);
 
         $data = new Deseases();
         $data->kodepenyakit = $request->kodepenyakit;
         $data->namapenyakit = $request->namapenyakit;
+        $data->obat = $request->obat;
         $data->save();
         return redirect()
             ->route('deseases.index')
@@ -88,6 +90,7 @@ class DeseasesController extends Controller
         $this->validate($request, [
             'kodepenyakit' => 'required',
             'namapenyakit' => 'required',
+            'obat' => 'required',
         ]);
 
         $data = Deseases::findOrFail($id);
@@ -95,6 +98,7 @@ class DeseasesController extends Controller
         $data->update([
             'kodepenyakit' => $request->kodepenyakit,
             'namapenyakit' => $request->namapenyakit,
+            'obat' => $request->obat,
         ]);
 
         if ($data) {

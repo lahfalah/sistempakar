@@ -27,6 +27,11 @@
                             <input id="namapenyakit" class="form-control" name="namapenyakit" required autofocus
                                 value="{{ old('kodepenyakit', $data->namapenyakit) }}">
                         </div>
+                        <div class="form-group">
+                            <label for="obat" class="form-label">Obat</label>
+                            <input id="obat" class="form-control" name="obat" required autofocus
+                                value="{{ old('kodepenyakit', $data->obat) }}">
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>

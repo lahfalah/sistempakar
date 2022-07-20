@@ -12,7 +12,7 @@
         @endif
         <form method="POST" action="{{ route('store_diagnose') }}">
             @csrf
-            <input type="text" name="diagnosas_id" value="{{ $id }}" readonly>
+            <input type="hidden" name="diagnosas_id" value="{{ $id }}" readonly>
             @foreach ($gejala as $d)
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="symptoms[]"

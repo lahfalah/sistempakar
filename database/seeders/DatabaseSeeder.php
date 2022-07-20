@@ -26,19 +26,23 @@ class DatabaseSeeder extends Seeder
 
         Deseases::Create([
             'kodepenyakit'=>'P001',
-            'namapenyakit'=>'HIV Stadium I'
+            'namapenyakit'=>'HIV Stadium I',
+            'obat' =>  'Mohon berkonsultasi dokter yang bersangkutan untuk pengobatan ARV (Antiretroviral)'
         ]);
         Deseases::Create([
             'kodepenyakit'=>'P002',
-            'namapenyakit'=>'HIV Stadium II'
+            'namapenyakit'=>'HIV Stadium II',
+            'obat' =>  'Mohon berkonsultasi dokter yang bersangkutan untuk pengobatan ARV (Antiretroviral)'
         ]);
         Deseases::Create([
             'kodepenyakit'=>'P003',
-            'namapenyakit'=>'HIV Stadium III'
+            'namapenyakit'=>'HIV Stadium III',
+            'obat' =>  'Mohon berkonsultasi dokter yang bersangkutan untuk pengobatan ARV (Antiretroviral)'
         ]);
         Deseases::Create([
             'kodepenyakit'=>'P004',
-            'namapenyakit'=>'AIDS'
+            'namapenyakit'=>'AIDS',
+            'obat' =>  'Mohon berkonsultasi dokter yang bersangkutan untuk pengobatan ARV (Antiretroviral)'
         ]);
 
 

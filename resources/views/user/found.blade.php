@@ -9,7 +9,7 @@
                 <div class="col pt-3">
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="text center">Terdiagnosa : {{ $hasil }}</h1>
+                            <h1 class="text-center">Terdiagnosa : {{ $hasil }}</h1>
                         </div>
                     </div>
                     <a href="/diagnosis">

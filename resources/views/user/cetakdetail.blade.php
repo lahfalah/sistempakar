@@ -36,7 +36,8 @@
             <tr>
                 <th style="width: 70px">No</th>
                 <th style="width: 150px">Penyakit</th>
-                <th> Nama Gejala</th>
+                <th style="width: 200px">Obat</th>
+                <th>Gejala</th>
             </tr>
             @php
                 $no = 1;
@@ -46,6 +47,7 @@
                 <tr>
                     <th>{{ $no++ }}</th>
                     <td align="center">{{ $laporan->diagnosa->penyakit->namapenyakit }}</td>
+                    <td >{{ $laporan->diagnosa->penyakit->obat }}</td>
                     {{-- <td align="center">{{ $laporan->created_at }}</td> --}}
                     <td>
                         <ul>

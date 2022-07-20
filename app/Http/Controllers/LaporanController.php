@@ -25,7 +25,7 @@ class LaporanController extends Controller
     public function cetakdetail($id)
     {
         $laporan = Laporan::findOrFail($id);
-        return view(
-            'user/cetakdetail', compact('laporan'));
+        // dd($laporan);
+        return view('user.cetakdetail', compact('laporan'));
     }
 }

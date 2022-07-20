@@ -56,7 +56,7 @@ class UsersDiagnosisController extends Controller
             return redirect()
                 ->route('diagnosis')
                 ->with([
-                    'maaf' => 'Penyakit Tidak Ditemukan',
+                    'maaf' => 'Informasi Gejala Kurang Jelas',
                 ]);
         }
     }
