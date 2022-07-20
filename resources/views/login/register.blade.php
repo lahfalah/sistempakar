@@ -124,6 +124,7 @@
                 <p class="login-box-msg">Silahkan Daftar</p>
                 <form action="/register" method="POST">
                     @csrf
+                    {{-- Nama --}}
                     <div class="input-group mb-3">
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                             id="name" placeholder="Nama Lengkap" required value="{{ old('name') }}">
@@ -134,19 +135,18 @@
                             </div>
                         </div>
                     </div>
-                    {{-- Tempat Tanggal Lahir --}}
-
+                    {{-- Tanggal Lahir --}}
                     <div class="form-group">
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input" name="tanggal"
-                                id="tanggal" data-target="#reservationdate" placeholder="Tanggal Lahir" required
-                                value="{{ old('kota') }}" />
+                                id="tanggal" data-target="#reservationdate" placeholder="Tanggal Lahir" required @error('tanggal') is-invalid @enderror
+                                value="{{ old('tanggal') }}" />
                             <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                 <div class="input-group-text bg-blue"><i class="fa fa-calendar"></i></div>
                             </div>
                         </div>
                     </div>
-
+                    {{-- Kota --}}
                     <div class="input-group mb-3">
                         <input type="text" name="kota" class="form-control @error('kota') is-invalid @enderror"
                             id="kota" placeholder="Kota" required value="{{ old('kota') }}">
@@ -157,6 +157,18 @@
                             </div>
                         </div>
                     </div>
+                    {{-- Jenis Kelamin --}}
+                    <div class="input-group mb-3">
+                        <div class="custom-control custom-radio ml-5">
+                            <input class="custom-control-input" value="Pria" required type="radio" id="Pria" name="jkelamin">
+                            <label for="Pria" class="custom-control-label">Laki-Laki</label>
+                        </div>
+                        <div class="custom-control custom-radio ml-5">
+                            <input class="custom-control-input" value="Wanita" required type="radio" id="Wanita" name="jkelamin">
+                            <label for="Wanita" class="custom-control-label">Wanita</label>
+                        </div>
+                    </div>
+                    {{-- Email --}}
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                             id="email" placeholder="Email" required value="{{ old('email') }}">
@@ -167,6 +179,7 @@
                             </div>
                         </div>
                     </div>
+                    {{-- Password --}}
                     <div class="input-group mb-3">
                         <input type="password" name="password"
                             class="form-control @error('password') is-invalid @enderror" id="password"
@@ -178,12 +191,10 @@
                             </div>
                         </div>
                     </div>
-
                     {{-- Khusus Untuk Kolom Level Di Database --}}
                     <input type="hidden" name="level" class="form-control mb-3 text-muted" id="level"
                         required value="User">
                     <div class="row">
-
                         <div class="col-12">
                             <button type="submit" class="btn btn-outline-light btn-block">Daftar Akun</button>
                         </div>

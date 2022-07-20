@@ -12,7 +12,16 @@
         @endif
         <form method="POST" action="{{ route('store_diagnose') }}">
             @csrf
-            <input type="hidden" name="diagnosas_id" value="{{ $id }}">
+            <input type="text" name="diagnosas_id" value="{{ $id }}" readonly>
+            @foreach ($gejala as $d)
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="symptoms[]"
+                    value="{{ $d->id }}">
+                <label class="form-check-label mb-2" for="">{{ $d->namagejala }}
+                </label>
+            </div>
+            @endforeach
+            {{-- <input type="hidden" name="diagnosas_id" value="{{ $id }}">
             <div class="form-group my-2">
                 <label for="">Penyakit</label>
                 <select name="symptoms_id" id="" class="form-control">
@@ -21,7 +30,7 @@
                         <option value="{{ $d->id }}">{{ $d->namagejala }}</option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
 
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>

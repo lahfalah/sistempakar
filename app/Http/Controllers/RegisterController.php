@@ -22,6 +22,7 @@ class RegisterController extends Controller
             'kota' => ['required'],
             'tanggal' => ['required'],
             'level' => ['required'],
+            'jkelamin' =>['required']
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
 
@@ -47,7 +48,7 @@ class RegisterController extends Controller
 
     public function semua()
     {
-        $data = User::all();
+        $data = User::paginate(10);
         return view('admin.users.index', compact('data'));
     }
 

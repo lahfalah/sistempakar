@@ -56,13 +56,15 @@ class DiagnosaController extends Controller
     {
         $request->validate([
             'diagnosas_id' => 'required',
-            'symptoms_id' => 'required',
         ]);
 
-        $data = new DiagnosaItem();
-        $data->diagnosas_id = $request->diagnosas_id;
-        $data->symptoms_id = $request->symptoms_id;
-        $data->save();
+        $symptoms = $request->input('symptoms');
+        foreach ($symptoms as $d) {
+            $data = new DiagnosaItem();
+            $data->diagnosas_id = $request->diagnosas_id;
+            $data->symptoms_id = $d;
+            $data->save();
+        }
         return redirect()
             ->route('diagnosis.index')
             ->with('success', 'Rule Berhasil Ditambahkan');

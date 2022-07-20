@@ -44,7 +44,6 @@
                                             <th style="width: 100px" class="text-center">No</th>
                                             <th class="text-center">Nama Lengkap</th>
                                             <th class="text-center">Email</th>
-                                            <th style="width: 100px" class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     @php
@@ -57,20 +56,11 @@
                                                     <th scope="row" class="text-center">{{ $no++ }}</th>
                                                     <td class="text-center">{{ $d->name }}</td>
                                                     <td class="text-center">{{ $d->email }}</td>
-                                                    <td class="text-center">
-                                                        {{-- DELETE --}}
-                                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                            action="" method="POST" class="d-inline">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="badge bg-danger border-0"><i
-                                                                    class="fas fa-trash-alt"></i></button>
-                                                        </form>
-                                                    </td>
                                                 </tr>
                                         @endif
                                     @endforeach
                                     </tbody>
+                                    {{ $data->links() }}
                                 </table>
                             </div>
                         </div>
@@ -129,6 +119,7 @@
                                         @endif
                                     @endforeach
                                     </tbody>
+                                    {{ $data->links() }}
                                 </table>
                             </div>
                         </div>

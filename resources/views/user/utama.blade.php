@@ -11,9 +11,10 @@
                 </div>
             </div>
             <h3 class="text-center">{{ $d->judul }}</h3>
-            <small>Isi beberapa Kata kata didalam informasi</small>
-            <br>
-            <br>
+                {{-- {!!  Str::limit($d->isi, 50)  !!} --}}
+                {{-- {{  Str::limit($d->isi, 50)  }} --}}
+                <br>
+                <br>
             <a href="/utama/{{ $d->id }}" class="btn btn-primary">Lihat Selengkapnya</a>
         </div>
     @endforeach

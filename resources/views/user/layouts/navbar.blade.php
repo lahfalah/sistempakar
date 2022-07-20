@@ -42,13 +42,13 @@
                 <li>
                     <form action="/logout" method="POST">
                         @csrf
-                        <button type="submit" class="nav-link border-0 bg-transparent"><i
+                        <button type="submit" class="nav-link border-0 bg-transparent">Keluar <i
                                 class="fas fa-sign-out"></i></button>
                     </form>
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="login">
+                    <a class="nav-link" href="login">Masuk 
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                     </a>
                 </li>

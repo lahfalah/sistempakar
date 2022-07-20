@@ -55,18 +55,9 @@
                                                 <th scope="row" class="text-center">{{ $no++ }}</th>
                                                 <td class="text-center">{{ $d->penyakit->namapenyakit }}</td>
                                                 <td class="text-center">
-                                                    {{-- UPDATE --}}
+                                                    {{-- Tambah Gejala di Data Diagnosis --}}
                                                     <a href="{{ route('diagnosis.show', $d->id) }}"
-                                                        class="badge bg-warning"><i class="fas fa-edit"></i></a>
-                                                    {{-- DELETE --}}
-                                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                        action="{{ route('diagnosis.destroy', $d->id) }}" method="POST"
-                                                        class="d-inline">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="badge bg-danger border-0"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                    </form>
+                                                        class="badge bg-warning">Tambah Gejala <i class="fas fa-edit"></i></a>
                                                 </td>
                                             </tr>
                                     @endforeach

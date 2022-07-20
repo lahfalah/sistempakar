@@ -17,18 +17,19 @@
 <body>
     <div class="form-grup">
         <p align="center"><b> Riwayat Diagnosa </b> {{ $laporan->created_at->format('d-M-Y') }}</p>
-
         <table style="text-align: left">
             <tr>
                 <td>Nama</td>
                 <th>: <b> {{ auth()->user()->name }}</b></th>
             </tr>
-
+            <tr>
+                <td>Jenis Kelamin </td>
+                <th>: {{ auth()->user()->jkelamin }}</th>
+            </tr>
             <tr>
                 <td>Tempat, Tanggal Lahir </td>
                 <th>: {{ auth()->user()->kota }} {{ auth()->user()->tanggal->format('d-M-Y') }}</th>
             </tr>
-
         </table>
         <br>
         <table class="static" align="center" rules="all" border="2px" style="width:90%">
