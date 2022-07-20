@@ -17,4 +17,5 @@
             <a href="/utama/{{ $d->id }}" class="btn btn-primary">Lihat Selengkapnya</a>
         </div>
     @endforeach
+    
 @endsection

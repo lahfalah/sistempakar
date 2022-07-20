@@ -19,6 +19,8 @@ class RegisterController extends Controller
             'name' => ['required'],
             'email' => ['required', 'unique:users', 'email:dns'],
             'password' => ['required', 'min:5'],
+            'kota' => ['required'],
+            'tanggal' => ['required'],
             'level' => ['required'],
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);

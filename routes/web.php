@@ -25,7 +25,7 @@ use App\Models\Diagnosa;
 */
 // CONTROLLER LOGIN REGISTER
 // Controller Register
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 // Controller Login dan Logout
 Route::get('/login', [LoginController::class, 'index'])
@@ -46,6 +46,7 @@ Route::post('/diagnosis', [UsersDiagnosisController::class, 'diagnosaken'])->mid
 // Controller Laporan
 Route::get('/laporan', [LaporanController::class, 'index'])->middleware('auth');
 Route::get('/cetak', [LaporanController::class, 'cetak'])->middleware('auth');
+Route::get('/cetak/{cetakdetail:id}', [LaporanController::class, 'cetakdetail'])->middleware('auth');
 
 // CONTROLLER ADMIN
 // Controller Halaman Utama

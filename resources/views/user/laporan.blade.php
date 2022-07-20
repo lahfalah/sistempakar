@@ -10,17 +10,18 @@
                     <div class="card" style="background-color:#370507">
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-striped table-dark mb-3">
-                                <a href="/cetak" target="_blank"><button class="btn col-1 btn-success mb-3" style="float:right;display:inline-block;">Cetak <i class="fa-solid fa-file-pdf"></i>
-                                </button>
-                                    
-                               </a>
+                                <a href="/cetak" target="_blank"><button
+                                        class="btn col-sm-3 btn-info mb-3 ml-auto">Cetak Keseluruhan Data <i
+                                            class="fa-solid fa-file-pdf"></i>
+                                    </button>
+                                </a>
                                 <thead>
                                     <tr>
                                         <th style="width: 70px" class="text-center">No</th>
                                         <th class="text-center">Waktu</th>
                                         <th class="text-center">Penyakit</th>
                                         <th class="text-center">Gejala</th>
-                                        {{-- <th style="width: 150px" class="text-center">Aksi</th> --}}
+                                        <th class="text-center">Cetak</th>
                                     </tr>
                                 </thead>
                                 @php
@@ -33,29 +34,11 @@
                                             <td class="text-center">{{ $d->created_at }}</td>
                                             <td class="text-center">{{ $d->diagnosa->penyakit->namapenyakit }}</td>
                                             <td class="text-center">{{ count($d->diagnosa->item) }}</td>
-                                            {{-- Lopping Untuk Model Gejala --}}
-                                            {{-- <td class="text-center">
-                                                <ul>
-                                                    @foreach ($d->diagnosa->item as $item)
-                                                        <li>{{ $item->gejala->namagejala }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </td> --}}
-
-                                            {{-- <td class="text-center">
-
-                                                <a href="" class="badge bg-info show_confirm"><i
-                                                        class="fas fa-circle-info">
-                                                    </i></a>
-
-                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action=""
-                                                    method="" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="badge bg-danger border-0"><i
-                                                            class="fas fa-trash-alt"></i></button>
-                                                </form>
-                                            </td> --}}
+                                            <td class="text-center"><a href="/cetak/{{ $d->id }}" target="_blank"><button
+                                                class="btn btn-success">Cetak <i
+                                                    class="fa-solid fa-file-pdf"></i>
+                                            </button>
+                                        </a></td>
                                         </tr>
                                 @endforeach
                                 </tbody>
